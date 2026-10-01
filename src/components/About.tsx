@@ -26,11 +26,11 @@ const identityItems: IdentityItem[] = [
     tag: "Clinical Healthcare & Community Welfare",
     scope: "Medical & Psychiatric Fieldwork",
     context:
-      "Structured psychiatric hospital casework at IQRAA International Hospital, institutional rehabilitation at Good Samaritan, and grassroots welfare under Sahrudeya and Health Dialogue.",
+      "Clinical hospital casework at IQRAA International Hospital, institutional rehabilitation at Good Samaritan, and grassroots community welfare.",
     details: [
       "Psychiatric case assessments & psychosocial intake",
       "Institutional rehabilitation & social reintegration",
-      "Kerala Association of Professional Social Workers (KAPS) Member"
+      "Registered Member, Kerala Association of Professional Social Workers (KAPS)"
     ],
     ambientColor: "from-sky-500/20 via-sky-600/5 to-transparent",
   },
@@ -39,11 +39,11 @@ const identityItems: IdentityItem[] = [
     number: "02",
     word: "MENTAL HEALTH",
     tag: "Youth Advocacy & De-stigmatization",
-    scope: "YUVA Manass & 'Are You Okay?' Campaign",
+    scope: "YUVA Manass Initiative",
     context:
-      "Mobilizing youth dialogue to dismantle psychological stigma, promote emotional self-awareness, and bridge vulnerable young people with certified counseling networks.",
+      "Mobilizing youth dialogue to dismantle stigma, promote emotional resilience, and connect young people with certified support networks.",
     details: [
-      "Founder of the YUVA Manass youth mental health initiative",
+      "Youth mental health advocacy and awareness",
       "Facilitator of Focused Group Discussions on emotional well-being",
       "Advocate for accessible mental health support and human rights"
     ],
@@ -56,11 +56,11 @@ const identityItems: IdentityItem[] = [
     tag: "Social Ventures & Leadership",
     scope: "AMDG Group Ecosystem",
     context:
-      "Founding and guiding AMDG Group to align sustainable entrepreneurship, digital innovation, and media with purposeful civic welfare models.",
+      "Aligning sustainable entrepreneurship, digital innovation, and creative media with purposeful community welfare models.",
     details: [
-      "Founder & Chairman, AMDG Group (amdggroup.in)",
-      "Incubating digital systems for non-profit and social welfare",
-      "Cross-disciplinary volunteer leadership and organizational design"
+      "Venture incubation & systems design",
+      "Digital solutions tailored for civic and non-profit growth",
+      "Cross-disciplinary team leadership and organizational design"
     ],
     ambientColor: "from-zinc-400/20 via-zinc-600/5 to-transparent",
   },
@@ -71,15 +71,16 @@ const identityItems: IdentityItem[] = [
     tag: "Design Direction & Digital Media",
     scope: "AMDG Media & EcoScan",
     context:
-      "Synthesizing editorial visual identity, publication layout, digital media strategies, and scientific campus biodiversity archival to advance social sector communication.",
+      "Employing editorial visual identity, publication layout, and campus biodiversity archival to elevate social sector communication.",
     details: [
       "Creative direction & publication design at AMDG Media",
-      "Creator and designer of the EcoScan botanical archival project",
+      "Designer of the EcoScan botanical archival project",
       "Campaign visual identity, typography systems, and executive media"
     ],
     ambientColor: "from-sky-400/20 via-indigo-600/5 to-transparent",
   },
 ];
+
 
 export function About() {
   const containerRef = useRef<HTMLElement>(null);
@@ -95,6 +96,11 @@ export function About() {
   const statementY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [-16, 24]);
   const bodyY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [0, 18]);
   const identityY = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [16, -16]);
+  // Portrait slow upward drift as section scrolls through viewport
+  const portraitScale = useTransform(scrollYProgress, [0.05, 0.35], shouldReduceMotion ? [1, 1] : [0.97, 1]);
+  // Subtle horizontal convergence for identity section header
+  const identityHeaderX = useTransform(scrollYProgress, [0.35, 0.65], shouldReduceMotion ? [0, 0] : [-8, 0]);
+
 
   const cubicEase = [0.16, 1, 0.3, 1] as const;
 
@@ -109,9 +115,10 @@ export function About() {
   };
 
   const statementLineVariants = {
-    hidden: { y: "115%" },
+    hidden: { y: shouldReduceMotion ? "0%" : "115%", opacity: shouldReduceMotion ? 1 : 0 },
     visible: {
       y: "0%",
+      opacity: 1,
       transition: { duration: 0.9, ease: cubicEase },
     },
   };
@@ -164,7 +171,7 @@ export function About() {
     <section
       ref={containerRef}
       id="about"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.06] overflow-hidden bg-[#08090b] text-zinc-100 select-none"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] overflow-hidden bg-[#08090b] text-zinc-100 select-none scroll-mt-20 sm:scroll-mt-24"
       aria-label="About Ajin Shibu and Professional Identity"
     >
       {/* Background Architectural Registration Marks & Dynamic Ambient Glow */}
@@ -224,13 +231,15 @@ export function About() {
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal tracking-tight text-zinc-100 leading-[1.08]">
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal tracking-tight text-zinc-100 leading-[1.08]"
+          >
             <span className="block overflow-hidden pb-1">
               <motion.span
                 variants={statementLineVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-10%" }}
                 className="block"
               >
                 I work at the
@@ -239,9 +248,6 @@ export function About() {
             <span className="block overflow-hidden pb-1">
               <motion.span
                 variants={statementLineVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.1 }}
                 className="block text-zinc-200"
               >
@@ -251,16 +257,13 @@ export function About() {
             <span className="block overflow-hidden pb-1">
               <motion.span
                 variants={statementLineVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.2 }}
                 className="block text-zinc-400"
               >
                 ideas and <span className="font-serif italic text-zinc-100">impact.</span>
               </motion.span>
             </span>
-          </h2>
+          </motion.h2>
         </motion.div>
 
         {/* Step 3: Asymmetrical Editorial Spread (Left Credentials Colophon + Right Body Paragraphs) */}
@@ -276,22 +279,29 @@ export function About() {
             viewport={{ once: true, margin: "-10%" }}
             className="lg:col-span-5 space-y-4"
           >
-            {/* Editorial Portrait Plate */}
-            <div className="relative w-full aspect-[3/4] max-h-[340px] sm:max-h-[380px] rounded-sm overflow-hidden border border-white/[0.08] bg-[#0c0e12] group shadow-2xl">
+            {/* Editorial Portrait Plate — scroll-linked subtle scale reveal */}
+            <motion.div
+              style={{ scale: portraitScale }}
+              className="relative w-full aspect-[3/4] max-h-[340px] sm:max-h-[380px] rounded-sm overflow-hidden border border-white/[0.1] bg-[#0c0e12] group shadow-2xl transition-all duration-500 hover:border-white/20"
+            >
               <Image
                 src={media.about.portrait.src}
                 alt={media.about.portrait.alt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-top grayscale contrast-110 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                className={`object-cover ${media.about.portrait.objectPosition || "object-top"} transition-all duration-700 ease-out group-hover:scale-[1.02] ${
+                  media.about.portrait.isReal
+                    ? "contrast-[1.04] brightness-[1.01] opacity-95 group-hover:opacity-100"
+                    : "grayscale contrast-110 opacity-75 group-hover:opacity-90 group-hover:grayscale-0"
+                }`}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between type-meta text-[9px] text-zinc-400">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between type-meta text-[9px] text-zinc-400 pointer-events-none">
                 <span className="text-sky-400">SCHOLAR &amp; PRACTITIONER</span>
                 <span>AS / 26</span>
               </div>
-            </div>
+            </motion.div>
 
             <div className="border border-white/[0.08] bg-[#0d0f13] p-5 sm:p-7 rounded-sm space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
@@ -346,7 +356,7 @@ export function About() {
             </p>
           </motion.div>
 
-          {/* Right Column: 3 Short Emotionally Intelligent Editorial Paragraphs */}
+          {/* Right Column: 2 Concise Editorial Paragraphs */}
           <motion.div
             variants={paragraphContainerVariants}
             initial="hidden"
@@ -354,30 +364,29 @@ export function About() {
             viewport={{ once: true, margin: "-10%" }}
             className="lg:col-span-7 space-y-6 text-zinc-300 font-sans font-light text-base sm:text-lg leading-[1.75] max-w-2xl"
           >
-            {/* Paragraph 1 */}
+            {/* Paragraph 1: Who Ajin is */}
             <motion.p variants={paragraphVariants}>
-              My work is grounded in direct human reality. Currently pursuing a Master of Social Work specializing in Medical &amp; Psychiatry at Marian College Kuttikkanam, I operate where clinical healthcare, individual emotional turmoil, and institutional rehabilitation meet. Whether inside psychiatric hospital rounds or rehabilitation centers, I observe how deeply structural support shapes human dignity.
+              I am a social work practitioner and MSW scholar specializing in Medical &amp; Psychiatry at Marian College Kuttikkanam, with foundational formation from LISSAH College, University of Calicut. My practice is grounded in psychiatric healthcare, institutional rehabilitation, and community welfare—guided by active listening and an abiding commitment to human dignity.
             </motion.p>
 
-            {/* Paragraph 2 */}
-            <motion.p variants={paragraphVariants}>
-              Formed through a rigorous Bachelor of Social Work at LISSAH College under Calicut University, my discipline took root through community casework, vulnerable group advocacy, and grassroots social surveys. I approach mental health and social distress not as abstract metrics, but as complex human narratives that demand active listening, empathy, and ethical intervention.
-            </motion.p>
-
-            {/* Paragraph 3 */}
+            {/* Paragraph 2: The intersection */}
             <motion.p variants={paragraphVariants} className="text-zinc-400">
-              This perspective naturally expanded into leadership and creative communication. As Founder of AMDG Group and the YUVA Manass youth mental health campaign, I integrate psychiatric awareness with digital media, visual identity, and social entrepreneurship—building enduring platforms that convert compassion into organized societal action.
+              Beyond clinical casework, I work across the intersection of mental health advocacy, purposeful enterprise, and digital communication. By synthesizing clinical insight with creative direction and sustainable venture models, I build platforms that translate empathy into organized civic impact.
             </motion.p>
           </motion.div>
         </motion.div>
 
+
         {/* Step 4: Professional Identity Typography Composition */}
         <div id="identity" className="mt-12 sm:mt-20 md:mt-28 pt-8 sm:pt-12 border-t border-white/[0.08]">
           <div id="pillars" className="scroll-mt-24" />
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8 md:mb-12">
+          <motion.div
+            style={{ x: identityHeaderX }}
+            className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8 md:mb-12"
+          >
             <div>
               <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-sky-400 font-medium block mb-1.5">
-                02 / PROFESSIONAL IDENTITY
+                01 / IDENTITY ARCHITECTURE
               </span>
               <h3 className="text-2xl sm:text-4xl font-serif font-normal tracking-tight text-zinc-100">
                 Four Pillars. <span className="font-serif italic text-zinc-400">One Architecture.</span>
@@ -387,7 +396,7 @@ export function About() {
               <span className="hidden sm:inline">[ Hover to reveal context ]</span>
               <span className="sm:hidden">[ Tap to reveal context ]</span>
             </span>
-          </div>
+          </motion.div>
 
           {/* The Composition Sculpture */}
           <motion.div

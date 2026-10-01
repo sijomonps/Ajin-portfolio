@@ -34,7 +34,7 @@ const milestones: Milestone[] = [
     tag: "CBSE Curriculum",
     category: "Formation",
     description:
-      "Secondary schooling in a structured boarding environment, cultivating early habits of personal discipline, resilience, and community awareness.",
+      "Secondary education in a boarding environment, cultivating early personal discipline.",
   },
   {
     id: "seminary",
@@ -46,7 +46,7 @@ const milestones: Milestone[] = [
     tag: "Discipline & Living",
     category: "Formation",
     description:
-      "Three years of rigorous personal formation developing interpersonal empathy, disciplined community living, and an enduring commitment to human service.",
+      "Three years of personal formation developing empathy, community living, and service ethics.",
   },
   {
     id: "higher-secondary",
@@ -58,7 +58,7 @@ const milestones: Milestone[] = [
     tag: "Social Sciences",
     category: "Academic",
     description:
-      "Completed higher secondary studies in Humanities, establishing foundational understandings of sociology, political structures, and community history.",
+      "Higher secondary education in Humanities, establishing sociological foundations.",
   },
   {
     id: "bsw",
@@ -70,7 +70,7 @@ const milestones: Milestone[] = [
     tag: "Professional BSW",
     category: "Academic",
     description:
-      "Comprehensive academic grounding in social casework, group dynamics, community organization methods, human behavior, and concurrent fieldwork.",
+      "Undergraduate foundation in social casework, group work, community methods, and concurrent fieldwork.",
   },
   {
     id: "fieldwork-aksharanila",
@@ -82,7 +82,7 @@ const milestones: Milestone[] = [
     tag: "Grassroots Fieldwork",
     category: "Fieldwork",
     description:
-      "Conceptualized and coordinated the AKSHARANILA education project, providing structured mentorship and educational reinforcement to underprivileged school students.",
+      "Educational reinforcement and mentorship project for economically disadvantaged school students.",
   },
   {
     id: "sahrudeya",
@@ -94,7 +94,7 @@ const milestones: Milestone[] = [
     tag: "NGO Governance",
     category: "Fieldwork",
     description:
-      "Analyzed regional social welfare mechanisms, non-governmental organizational structures, women self-help group programs, and rural community welfare models.",
+      "Field exposure in non-governmental administration, self-help groups, and rural community welfare.",
   },
   {
     id: "good-samaritan",
@@ -106,7 +106,7 @@ const milestones: Milestone[] = [
     tag: "Clinical Practicum",
     category: "Clinical",
     description:
-      "Two-month institutional rehabilitation practicum assisting client psychosocial rehabilitation, vocational training activities, and sports events for PwDs.",
+      "Two-month institutional rehabilitation practicum supporting resident recovery and community programs.",
   },
   {
     id: "msw",
@@ -118,7 +118,7 @@ const milestones: Milestone[] = [
     tag: "Medical & Psychiatry",
     category: "Academic",
     description:
-      "Advanced clinical training specializing in psychiatric social work, counseling psychology, hospital healthcare policy, therapeutic interventions, and clinical research.",
+      "Postgraduate clinical specialization in psychiatric social work, therapeutic intervention, and health systems.",
   },
   {
     id: "iqraa-hospital",
@@ -130,7 +130,7 @@ const milestones: Milestone[] = [
     tag: "NABH Hospital",
     category: "Clinical",
     description:
-      "Intensive clinical psychiatric rounds, case histories, multi-disciplinary mental health treatment planning, and caregiver psycho-education in an NABH-accredited hospital.",
+      "Clinical psychiatric rounds, intake assessments, and psychosocial rehabilitation in an NABH hospital.",
   },
   {
     id: "yuva-manass",
@@ -142,7 +142,7 @@ const milestones: Milestone[] = [
     tag: "Youth Mental Health",
     category: "Initiative",
     description:
-      "Founded youth mental health campaign destigmatizing emotional struggles, conducting Focused Group Discussions, and linking youth with professional counseling services.",
+      "Youth mental health initiative destigmatizing emotional distress and connecting youth to support networks.",
   },
   {
     id: "amdg-group",
@@ -154,9 +154,10 @@ const milestones: Milestone[] = [
     tag: "Venture & Media",
     category: "Venture",
     description:
-      "Established AMDG Group and AMDG Media, synthesizing digital technology, creative communication, and sustainable social venture models for positive civic impact.",
+      "Entrepreneurial ecosystem uniting digital media, technology, and social impact models.",
   },
 ];
+
 
 export function Journey() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -222,7 +223,7 @@ export function Journey() {
     <section
       id="journey"
       ref={containerRef}
-      className="relative bg-[#08090b] text-zinc-100 border-t border-white/[0.06] select-none"
+      className="relative bg-[#08090b] text-zinc-100 border-t border-white/[0.08] select-none scroll-mt-20 sm:scroll-mt-24"
       aria-label="The Journey of Ajin Shibu"
     >
       {/* ============================================================== */}

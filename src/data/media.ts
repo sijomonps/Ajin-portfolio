@@ -14,6 +14,7 @@ export interface MediaAsset {
   height: number;
   isReal: boolean;
   caption?: string;
+  objectPosition?: string;
 }
 
 export interface GalleryMediaItem {
@@ -29,9 +30,26 @@ export interface GalleryMediaItem {
   tag: string;
   spanClass: string;
   isReal: boolean;
+  aspectRatio: string;
+  objectPosition?: string;
 }
 
-export const media = {
+export interface MediaRegistry {
+  hero: { portrait: MediaAsset };
+  about: { portrait: MediaAsset };
+  experience: Record<"iqraa" | "goodSamaritan" | "sahrudeya" | "fieldwork", MediaAsset>;
+  projects: Record<"aksharanila" | "ecoscan", MediaAsset>;
+  yuvaManass: { campaign: MediaAsset };
+  amdg: { brand: MediaAsset };
+  volunteering: Record<"medicalCamp" | "insuranceSurvey" | "pwdSports" | "mentalHealth" | "goodSamaritan", MediaAsset>;
+  gallery: GalleryMediaItem[];
+  certificates: Record<
+    "kaps" | "iqraa" | "goodSamaritan" | "fieldwork" | "sahrudeya" | "cybersecurity" | "canva" | "graphicDesign" | "softwareDev" | "skillup",
+    MediaAsset
+  >;
+}
+
+export const media: MediaRegistry = {
   hero: {
     portrait: {
       src: "/images/ajin-shibu.png", // Active authentic photograph
@@ -42,6 +60,7 @@ export const media = {
       height: 1500,
       isReal: true,
       caption: "Authentic portrait plate, Ajin Shibu",
+      objectPosition: "object-top",
     },
   },
 
@@ -55,6 +74,7 @@ export const media = {
       height: 1600,
       isReal: false,
       caption: "MSW Scholar & Clinical Healthcare Practicum",
+      objectPosition: "object-top",
     },
   },
 
@@ -207,94 +227,107 @@ export const media = {
     {
       id: "portrait-feature",
       code: "01",
-      title: "Ajin Shibu — Master of Social Work Scholar",
-      subtitle: "Marian College Kuttikkanam (Autonomous)",
+      title: "Ajin Shibu — Personal Folio",
+      subtitle: "Marian College Kuttikkanam",
       category: "Academic & Leadership",
       description:
-        "MSW Scholar in Medical & Psychiatry. Founder of AMDG Group and YUVA Manass, bridging psychiatric healthcare, civic leadership, and digital innovation.",
+        "MSW Scholar in Medical & Psychiatry and founder.",
       src: "/images/ajin-shibu.png", // Active real portrait
       placeholderSrc: "/placeholders/gallery-01.webp",
       alt: "Ajin Shibu — MSW Medical & Psychiatry Scholar and Founder",
       tag: "Authentic Portrait • Verified 2026",
       spanClass: "col-span-12 lg:col-span-5 lg:row-span-2 aspect-[3/4] lg:aspect-auto",
       isReal: true,
+      aspectRatio: "3:4",
+      objectPosition: "object-top",
     },
     {
       id: "iqraa-archive",
       code: "02",
-      title: "Psychiatric Clinical Practicum Archive",
+      title: "Psychiatric Clinical Practicum",
       subtitle: "IQRAA International Hospital, Kozhikode",
       category: "Clinical Healthcare",
       description:
-        "NABH-accredited Department of Psychiatry clinical intake observation, multi-disciplinary rounds, patient case histories, and caregiver psycho-education.",
+        "Clinical intake observation, psychiatric rounds, and psychosocial rehabilitation.",
       src: "/placeholders/gallery-02.webp",
       placeholderSrc: "/placeholders/gallery-02.webp",
       alt: "IQRAA International Hospital Psychiatric Clinical Practicum Archive",
       tag: "NABH Clinical Dossier",
       spanClass: "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
       isReal: false,
+      aspectRatio: "4:3",
+      objectPosition: "object-center",
     },
     {
       id: "aksharanila-archive",
       code: "03",
-      title: "AKSHARANILA Community Fieldwork",
+      title: "AKSHARANILA Fieldwork",
       subtitle: "Health Dialogue Kozhikode",
       category: "Fieldwork & Education",
       description:
-        "Fieldwork project empowering economically disadvantaged school students through tailored educational modules, mentoring, and localized family engagement.",
+        "Educational reinforcement and mentoring for underprivileged school students.",
       src: "/placeholders/gallery-03.webp",
       placeholderSrc: "/placeholders/gallery-03.webp",
       alt: "AKSHARANILA Community Fieldwork Educational Mentorship Archive",
       tag: "Grassroots Intervention Record",
       spanClass: "col-span-12 sm:col-span-6 lg:col-span-3 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
       isReal: false,
+      aspectRatio: "4:3",
+      objectPosition: "object-center",
     },
     {
       id: "ecoscan-archive",
       code: "04",
-      title: "ECOSCAN Biodiversity Documentation",
-      subtitle: "LISSAH College Campus Environmental Initiative",
+      title: "ECOSCAN Biodiversity Project",
+      subtitle: "LISSAH College Campus",
       category: "Environmental Design",
       description:
-        "Campus flora cataloging synthesizing botanical taxonomy, environmental literacy, and high-legibility QR digital signage design.",
+        "Campus flora cataloging, botanical taxonomy, and QR signage design.",
       src: "/placeholders/gallery-04.webp",
       placeholderSrc: "/placeholders/gallery-04.webp",
       alt: "ECOSCAN Botanical Biodiversity Campus Archive",
       tag: "Campus Flora Index",
       spanClass: "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
       isReal: false,
+      aspectRatio: "4:3",
+      objectPosition: "object-center",
     },
     {
       id: "yuva-manass-archive",
       code: "05",
-      title: "YUVA Manass — 'Are You Okay?' Campaign",
+      title: "YUVA Manass Campaign",
       subtitle: "Youth Mental Health Dialogues",
       category: "Advocacy & Dialogue",
       description:
-        "Grassroots initiative facilitating Focused Group Discussions, destigmatizing emotional distress, and linking youth with professional counseling services.",
+        "Focused Group Discussions and youth mental health destigmatization.",
       src: "/placeholders/gallery-05.webp",
       placeholderSrc: "/placeholders/gallery-05.webp",
       alt: "YUVA Manass Youth Mental Health Awareness Dialogues Archive",
       tag: "Advocacy Outreach Record",
       spanClass: "col-span-12 sm:col-span-6 lg:col-span-3 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
       isReal: false,
+      aspectRatio: "4:3",
+      objectPosition: "object-center",
     },
     {
       id: "rehab-archive",
       code: "06",
-      title: "Good Samaritan Rehabilitation Practicum",
-      subtitle: "Institutional Rehabilitation & Training Centre, Kannur",
+      title: "Rehabilitation Practicum",
+      subtitle: "Good Samaritan Centre, Kannur",
       category: "Rehabilitation Systems",
       description:
-        "Two-month practicum supporting institutional rehabilitation residents, developmental therapy sessions, and community sports marathons for PwDs.",
+        "Institutional rehabilitation, developmental therapy, and community sports for PwDs.",
       src: "/placeholders/gallery-06.webp",
       placeholderSrc: "/placeholders/gallery-06.webp",
       alt: "Good Samaritan Rehabilitation Practicum Archive",
       tag: "Institutional Rehabilitation File",
       spanClass: "col-span-12 sm:col-span-12 lg:col-span-5 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[16/9] lg:aspect-[4/3]",
       isReal: false,
+      aspectRatio: "16:9",
+      objectPosition: "object-center",
     },
   ] as GalleryMediaItem[],
+
 
   certificates: {
     kaps: {

@@ -87,7 +87,7 @@ export function ProfessionalVision() {
     <section
       ref={containerRef}
       id="vision"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#07080a] text-zinc-100 select-none overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#07080a] text-zinc-100 select-none overflow-hidden scroll-mt-20 sm:scroll-mt-24"
       aria-label="Professional Vision and Long-Term Direction"
     >
       {/* Background Architectural Markings */}

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Building2, Calendar, MapPin } from "lucide-react";
+import { media } from "@/data/media";
 
 interface ExperienceItem {
   id: string;
@@ -17,6 +19,7 @@ interface ExperienceItem {
   scopePoints: string[];
   tag: string;
   isRecent?: boolean;
+  mediaKey: keyof typeof media.experience;
 }
 
 const experienceData: ExperienceItem[] = [
@@ -30,14 +33,15 @@ const experienceData: ExperienceItem[] = [
     duration: "1 Month",
     location: "Kozhikode, Kerala",
     description:
-      "Exposure to the psychiatric care environment and the role of social work within mental health services.",
+      "Clinical psychiatric social work practicum within an NABH-accredited hospital setting.",
     scopePoints: [
-      "Psychiatric case assessments and clinical intake observation",
-      "Multi-disciplinary mental health rounds and treatment discussions",
-      "Patient psycho-social rehabilitation and caregiver counseling exposure",
+      "Clinical intake evaluations and patient case histories",
+      "Multidisciplinary psychiatric rounds and care discussions",
+      "Psychosocial rehabilitation and caregiver guidance",
     ],
     tag: "NABH Clinical Practicum",
     isRecent: true,
+    mediaKey: "iqraa",
   },
   {
     id: "good-samaritan",
@@ -49,13 +53,14 @@ const experienceData: ExperienceItem[] = [
     duration: "2 Months",
     location: "Kannur, Kerala",
     description:
-      "Exposure to rehabilitation-oriented social work, client interaction, programme activities and institutional settings.",
+      "Institutional rehabilitation practicum focusing on resident reintegration, life skills, and developmental programs.",
     scopePoints: [
       "Direct engagement with institutional rehabilitation residents",
-      "Assisted in vocational and therapeutic developmental activities",
-      "Coordinated sports meets and community awareness programs for PwDs",
+      "Therapeutic and vocational activity facilitation",
+      "Community programs and sports meets for PwDs",
     ],
     tag: "Rehabilitation Practicum",
+    mediaKey: "goodSamaritan",
   },
   {
     id: "sahrudeya",
@@ -67,13 +72,14 @@ const experienceData: ExperienceItem[] = [
     duration: "1 Month",
     location: "Ernakulam, Kerala",
     description:
-      "Exposure to regional social development, non-governmental organizational structure, women empowerment groups, and rural community welfare.",
+      "Field exposure in non-governmental administration, women self-help networks, and rural community welfare.",
     scopePoints: [
-      "Analyzed community welfare delivery models and SHG networks",
-      "Field visits to community intervention sites across Ernakulam",
-      "Documentation of non-governmental development interventions",
+      "Community welfare delivery models and SHG networks",
+      "Intervention site visits across Ernakulam",
+      "Documentation of community-level interventions",
     ],
     tag: "Welfare Administration",
+    mediaKey: "sahrudeya",
   },
   {
     id: "health-dialogue",
@@ -85,15 +91,17 @@ const experienceData: ExperienceItem[] = [
     duration: "24 Days",
     location: "Kozhikode, Kerala",
     description:
-      "Field exposure in community and social development settings, grassroots demographic surveys, and project initiation.",
+      "Concurrent community fieldwork focused on demographic surveys, grassroots casework, and educational initiative coordination.",
     scopePoints: [
-      "Conducted community needs assessments and household surveys",
-      "Initiated and coordinated the AKSHARANILA educational project",
-      "Facilitated group work sessions for children and local self-help groups",
+      "Community needs assessments and household surveys",
+      "Coordination of the AKSHARANILA educational project",
+      "Group work sessions for children and local groups",
     ],
     tag: "Concurrent Fieldwork",
+    mediaKey: "fieldwork",
   },
 ];
+
 
 export function Experience() {
   const shouldReduceMotion = useReducedMotion();
@@ -141,9 +149,10 @@ export function Experience() {
   return (
     <section
       id="work"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.06] bg-[#08090b] text-zinc-100 select-none overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#08090b] text-zinc-100 select-none overflow-hidden scroll-mt-20 sm:scroll-mt-24"
       aria-label="Professional Experience and Clinical Practicums"
     >
+      <div id="experience" className="scroll-mt-20 sm:scroll-mt-24" />
       {/* Background Architectural Markings & Subtle Radial Glow */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-1/3 right-1/4 w-[700px] h-[500px] rounded-full bg-gradient-to-b from-sky-500/[0.03] to-transparent blur-[160px]" />
@@ -253,7 +262,7 @@ export function Experience() {
                   isHovered
                     ? "bg-white/[0.015] pl-2 sm:pl-4"
                     : isOtherHovered
-                    ? "opacity-35"
+                    ? "opacity-50"
                     : "opacity-90 hover:opacity-100"
                 }`}
               >
@@ -352,6 +361,31 @@ export function Experience() {
                     </div>
                   </div>
                 </div>
+
+                {/* Optional Real Practicum Photo on Desktop Hover (Zero Layout Shift) */}
+                {media.experience[exp.mediaKey]?.isReal && (
+                  <div
+                    className={`pointer-events-none hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-20 transition-all duration-300 ${
+                      isHovered
+                        ? "opacity-100 translate-x-0 scale-100"
+                        : "opacity-0 translate-x-3 scale-95"
+                    }`}
+                  >
+                    <div className="relative w-28 h-20 rounded-xs overflow-hidden border border-white/20 shadow-2xl bg-black/80">
+                      <Image
+                        src={media.experience[exp.mediaKey].src}
+                        alt={media.experience[exp.mediaKey].alt}
+                        fill
+                        sizes="112px"
+                        className={`object-cover ${media.experience[exp.mediaKey].objectPosition || "object-center"}`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                      <span className="absolute bottom-1 right-1.5 type-meta text-[8px] text-sky-400">
+                        CLINICAL RECORD
+                      </span>
+                    </div>
+                  </div>
+                )}
               </motion.div>
             );
           })}

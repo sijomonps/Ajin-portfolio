@@ -22,6 +22,7 @@ interface CertificateItem {
   issuer: string;
   scope: string;
   category: "Professional" | "Clinical" | "Fieldwork" | "Technical" | "Design";
+  mediaKey: keyof typeof media.certificates;
 }
 
 const certificates: CertificateItem[] = [
@@ -32,6 +33,7 @@ const certificates: CertificateItem[] = [
     issuer: "KAPS Kerala State Chapter",
     scope: "Official Registered Professional Member · Verified State Standing",
     category: "Professional",
+    mediaKey: "kaps",
   },
   {
     id: "iqraa-cert",
@@ -40,22 +42,25 @@ const certificates: CertificateItem[] = [
     issuer: "IQRAA International Hospital & Research Centre",
     scope: "NABH-accredited Department of Psychiatry clinical practicum verification.",
     category: "Clinical",
+    mediaKey: "iqraa",
   },
   {
     id: "good-samaritan-cert",
     code: "03",
     name: "Rehabilitation Social Work Internship Certificate",
     issuer: "Good Samaritan Rehabilitation & Training Centre",
-    scope: "Two-month institutional rehabilitation and client reintegration certification.",
+    scope: "Institutional rehabilitation and client reintegration practicum verification.",
     category: "Clinical",
+    mediaKey: "goodSamaritan",
   },
   {
     id: "health-dialogue-cert",
     code: "04",
     name: "Concurrent Fieldwork Practicum Certificate",
     issuer: "Health Dialogue Kozhikode",
-    scope: "Community development, social assessment surveys, and AKSHARANILA project verification.",
+    scope: "Community development and AKSHARANILA project verification.",
     category: "Fieldwork",
+    mediaKey: "fieldwork",
   },
   {
     id: "sahrudeya-cert",
@@ -64,6 +69,7 @@ const certificates: CertificateItem[] = [
     issuer: "Welfare Services Ernakulam (Sahrudeya)",
     scope: "Non-governmental social administration and rural community welfare verification.",
     category: "Fieldwork",
+    mediaKey: "sahrudeya",
   },
   {
     id: "cyber-security",
@@ -72,40 +78,46 @@ const certificates: CertificateItem[] = [
     issuer: "Certified Credential",
     scope: "Information security fundamentals, digital privacy, and ethical data handling.",
     category: "Technical",
+    mediaKey: "cybersecurity",
   },
   {
     id: "canva-skills",
     code: "07",
     name: "Visual Communication & Canva Skills Add-on Course",
     issuer: "Institutional Add-on Certification",
-    scope: "Graphic design, visual composition, and digital communication publication.",
+    scope: "Visual composition, graphic design, and digital publication.",
     category: "Design",
+    mediaKey: "canva",
   },
   {
     id: "graphic-designer",
     code: "08",
     name: "Graphic Designer Certificate",
     issuer: "Design Credential",
-    scope: "Digital layout, editorial typography, brand identity, and executive presentation design.",
+    scope: "Digital layout, editorial typography, and visual identity design.",
     category: "Design",
+    mediaKey: "graphicDesign",
   },
   {
     id: "software-dev",
     code: "09",
     name: "Software Product Developer Certificate",
     issuer: "Technology Credential",
-    scope: "Digital product systems, frontend workflows, and technology-driven civic platforms.",
+    scope: "Digital product systems, frontend workflows, and civic platforms.",
     category: "Technical",
+    mediaKey: "softwareDev",
   },
   {
     id: "skillup",
     code: "10",
     name: "Skillup Professional Certifications",
     issuer: "Professional Learning",
-    scope: "Cross-disciplinary leadership, decision-making, and professional communication.",
+    scope: "Leadership development, communication, and decision-making.",
     category: "Professional",
+    mediaKey: "skillup",
   },
 ];
+
 
 const galleryItems: GalleryMediaItem[] = media.gallery;
 
@@ -153,8 +165,14 @@ export function ArchiveCertifications() {
     setTouchStartX(null);
   };
 
-  // Keyboard navigation for lightbox
+  // Body scroll locking and keyboard navigation for lightbox
   useEffect(() => {
+    if (lightboxIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
       if (e.key === "Escape") closeLightbox();
@@ -163,7 +181,10 @@ export function ArchiveCertifications() {
     };
 
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [lightboxIndex, closeLightbox, nextLightbox, prevLightbox]);
 
   const activeLightboxItem = lightboxIndex !== null ? galleryItems[lightboxIndex] : null;
@@ -171,9 +192,10 @@ export function ArchiveCertifications() {
   return (
     <section
       id="archive"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#07080b] text-zinc-100 select-none overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#07080b] text-zinc-100 select-none overflow-hidden scroll-mt-20 sm:scroll-mt-24"
       aria-label="Certifications and Visual Archive"
     >
+      <div id="credentials" className="scroll-mt-20 sm:scroll-mt-24" />
       {/* Background Architectural Markings */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-12 left-6 sm:left-8 lg:left-12 font-sans text-[10px] text-white/20 uppercase tracking-widest">
@@ -188,7 +210,7 @@ export function ArchiveCertifications() {
         {/* ============================================================== */}
         {/* CHAPTER 1: REFINED CERTIFICATIONS ARCHIVE                      */}
         {/* ============================================================== */}
-        <div id="certifications">
+        <div id="certifications" className="scroll-mt-20 sm:scroll-mt-24">
           {/* Header */}
           <div className="pb-4 border-b border-white/[0.08] mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
@@ -216,7 +238,7 @@ export function ArchiveCertifications() {
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-3.5 py-1.5 min-h-[36px] rounded-xs transition-all uppercase tracking-wider ${
+                  className={`px-3.5 py-2 min-h-[40px] rounded-xs transition-all uppercase tracking-wider cursor-pointer ${
                     activeCategory === cat
                       ? "bg-white text-zinc-950 font-semibold"
                       : "bg-white/[0.03] text-zinc-400 hover:text-white border border-white/[0.06]"
@@ -229,7 +251,11 @@ export function ArchiveCertifications() {
           </div>
 
           {/* Refined Archive Interface (Not Boring Identical Cards) */}
-          <div
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             onMouseLeave={() => setHoveredCertId(null)}
             className="border-t border-white/[0.08]"
           >
@@ -305,10 +331,35 @@ export function ArchiveCertifications() {
                       </div>
                     </div>
                   </div>
+
+                  {/* Optional Real Certificate Document Preview on Desktop Hover (Zero Layout Shift) */}
+                  {media.certificates[cert.mediaKey]?.isReal && (
+                    <div
+                      className={`pointer-events-none hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-20 transition-all duration-300 ${
+                        isHovered
+                          ? "opacity-100 translate-x-0 scale-100"
+                          : "opacity-0 translate-x-3 scale-95"
+                      }`}
+                    >
+                      <div className="relative w-28 h-20 rounded-xs overflow-hidden border border-white/20 shadow-2xl bg-black/90">
+                        <Image
+                          src={media.certificates[cert.mediaKey].src}
+                          alt={media.certificates[cert.mediaKey].alt}
+                          fill
+                          sizes="112px"
+                          className={`object-cover ${media.certificates[cert.mediaKey].objectPosition || "object-top"}`}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                        <span className="absolute bottom-1 right-1.5 type-meta text-[8px] text-sky-400">
+                          DOCUMENT
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
         {/* ============================================================== */}
@@ -369,11 +420,15 @@ export function ArchiveCertifications() {
                         alt={item.alt || item.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 42vw"
-                        className="object-cover object-top grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
-                        priority
+                        className={`object-cover ${item.objectPosition || "object-top"} transition-all duration-700 ease-out ${
+                          item.isReal
+                            ? "contrast-[1.05] brightness-[1.02] opacity-95 group-hover:opacity-100 group-hover:scale-105"
+                            : "grayscale contrast-110 opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
+                        }`}
+                        loading="lazy"
                       />
                       {/* Ambient Gradient Vignette */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent pointer-events-none" />
 
                       {/* Top Specimen Badge */}
                       <div className="absolute top-4 left-4 z-10">
@@ -409,11 +464,21 @@ export function ArchiveCertifications() {
                         alt={item.alt || item.title}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-cover object-center grayscale contrast-110 opacity-25 group-hover:opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                        className={`object-cover ${item.objectPosition || "object-center"} transition-all duration-700 ease-out group-hover:scale-105 ${
+                          item.isReal
+                            ? "opacity-60 group-hover:opacity-85 contrast-[1.05] brightness-[1.02]"
+                            : "grayscale contrast-110 opacity-25 group-hover:opacity-40 group-hover:grayscale-0"
+                        }`}
                         loading="lazy"
                       />
                       {/* Dark Vignette Overlay for Legibility */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e12]/95 via-[#0c0e12]/85 to-[#0c0e12]/70 pointer-events-none" />
+                      <div
+                        className={`absolute inset-0 pointer-events-none transition-colors duration-500 ${
+                          item.isReal
+                            ? "bg-gradient-to-t from-[#0c0e12]/90 via-[#0c0e12]/60 to-[#0c0e12]/40"
+                            : "bg-gradient-to-t from-[#0c0e12]/95 via-[#0c0e12]/85 to-[#0c0e12]/70"
+                        }`}
+                      />
 
                       <div className="relative z-10 flex items-center justify-between pb-3 border-b border-white/[0.06]">
                         <span className="type-meta text-sky-400">
@@ -529,7 +594,11 @@ export function ArchiveCertifications() {
                       alt={activeLightboxItem.alt || activeLightboxItem.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-center"
+                      className={`object-cover ${activeLightboxItem.objectPosition || "object-center"} ${
+                        activeLightboxItem.isReal
+                          ? "contrast-[1.04] brightness-[1.01]"
+                          : "grayscale contrast-105 opacity-80"
+                      }`}
                       priority
                     />
                   </div>

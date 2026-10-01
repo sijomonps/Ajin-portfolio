@@ -35,12 +35,12 @@ const projects: ProjectData[] = [
     subtitle: "Education Through Empowerment",
     role: "Project Initiator & Coordinator",
     period: "2023 – 2024",
-    context: "Undertaken as part of concurrent fieldwork under Health Dialogue Kozhikode.",
-    focus: "Empowering economically disadvantaged students through structured educational reinforcement, youth mentorship, and community learning continuity.",
+    context: "Concurrent Fieldwork · Health Dialogue Kozhikode",
+    focus: "Empowering economically disadvantaged students through structured academic reinforcement, mentorship, and community engagement.",
     points: [
-      "Designed tailored educational reinforcement modules for underprivileged school students",
-      "Fostered youth self-efficacy, learning continuity, and social empowerment",
-      "Coordinated grassroots stakeholder collaboration across families, schools, and local networks",
+      "Curated learning reinforcement modules for school students",
+      "Strengthened student self-efficacy and educational continuity",
+      "Collaborated across families, schools, and local support networks",
     ],
     tags: ["Grassroots Fieldwork", "Educational Equity", "Community Mentorship"],
     location: "Kozhikode, Kerala",
@@ -59,12 +59,12 @@ const projects: ProjectData[] = [
     subtitle: "Documenting College Biodiversity",
     role: "Project Initiator & Designer",
     period: "2023 – 2024",
-    context: "LISSAH College, Kaithapoyil · Campus Environmental Initiative.",
-    focus: "Identifying plants and trees within the college environment through creative documentation, scientific taxonomy, environmental awareness, and digital communication design.",
+    context: "Campus Environmental Initiative · LISSAH College",
+    focus: "Cataloging campus flora through scientific botanical taxonomy, educational design, and digital QR documentation plates.",
     points: [
-      "Conducted extensive campus flora and tree identification and taxonomic documentation",
-      "Designed communicative informational design assets and QR digital documentation plates",
-      "Synthesized environmental science literacy with modern visual communication technology",
+      "Campus tree identification and botanical classification",
+      "Digital QR documentation plates and signage design",
+      "Connecting environmental literacy with visual communication",
     ],
     tags: ["Biodiversity Archival", "Digital Documentation", "Communication Design"],
     location: "Kaithapoyil, Kozhikode",
@@ -77,6 +77,7 @@ const projects: ProjectData[] = [
     },
   },
 ];
+
 
 export function Projects() {
   const shouldReduceMotion = useReducedMotion();
@@ -129,9 +130,10 @@ export function Projects() {
   return (
     <section
       id="impact"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.06] bg-[#08090b] text-zinc-100 select-none overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#08090b] text-zinc-100 select-none overflow-hidden scroll-mt-20 sm:scroll-mt-24"
       aria-label="Selected Initiatives and Case Studies"
     >
+      <div id="projects" className="scroll-mt-20 sm:scroll-mt-24" />
       {/* Background Architectural Markings */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <div className="absolute top-12 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-widest text-white/10 uppercase">
@@ -231,7 +233,7 @@ export function Projects() {
                 </div>
 
                 {/* Role & Context Colophon */}
-                <div className="space-y-1 py-2.5 px-3.5 rounded-xs bg-white/[0.02] border border-white/[0.06] font-sans text-xs">
+                <div className="space-y-1 py-2.5 px-3.5 rounded-xs bg-white/[0.02] border border-white/[0.06] font-sans text-xs transition-colors duration-300 group-hover:border-white/[0.12] group-hover:bg-white/[0.04]">
                   <div className="flex items-center gap-2 text-zinc-300">
                     <span className="text-sky-400 font-medium">ROLE:</span>
                     <span className="font-medium text-white">{aksharanila.role}</span>
@@ -262,7 +264,7 @@ export function Projects() {
                   {aksharanila.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-xs bg-white/[0.04] border border-white/[0.08] font-sans text-[10px] uppercase tracking-[0.16em] text-zinc-300"
+                      className="px-2.5 py-1 rounded-xs bg-white/[0.04] border border-white/[0.08] font-sans text-[10px] uppercase tracking-[0.16em] text-zinc-300 transition-colors duration-300 group-hover:border-sky-400/25 group-hover:text-zinc-200"
                     >
                       {tag}
                     </span>
@@ -278,7 +280,7 @@ export function Projects() {
                     y: mousePos1.y,
                   }}
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                  className="relative min-h-[220px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090a0d] p-4 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-sky-400/40"
+                  className="relative min-h-[260px] sm:min-h-[320px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090a0d] p-5 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-sky-400/40"
                 >
                   {/* Background Project Specimen Image */}
                   <Image
@@ -286,49 +288,40 @@ export function Projects() {
                     alt={media.projects.aksharanila.alt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-center grayscale contrast-110 opacity-30 group-hover:opacity-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    className={`object-cover ${media.projects.aksharanila.objectPosition || "object-center"} transition-all duration-700 ease-out group-hover:scale-105 ${
+                      media.projects.aksharanila.isReal
+                        ? "opacity-90 group-hover:opacity-100"
+                        : "grayscale contrast-110 opacity-40 group-hover:opacity-65 group-hover:grayscale-0"
+                    }`}
                     loading="lazy"
                   />
-                  {/* Dark Vignette Overlay for Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d]/95 via-[#090a0d]/80 to-[#090a0d]/60 pointer-events-none" />
+                  {/* Restrained Gradient Vignette for Legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d]/90 via-[#090a0d]/30 to-[#090a0d]/40 pointer-events-none" />
 
                   {/* Top Architectural Specimen Line */}
-                  <div className="relative z-10 flex items-center justify-between text-[10px] font-sans text-zinc-500 uppercase tracking-widest border-b border-white/[0.06] pb-2.5 font-medium">
+                  <div className="relative z-10 flex items-center justify-between text-[10px] font-sans text-zinc-400 uppercase tracking-widest border-b border-white/[0.08] pb-3 font-medium">
                     <span className="text-sky-400">PRACTICUM ARCHIVE // 01</span>
                     <span>HEALTH DIALOGUE KOZHIKODE</span>
                   </div>
 
-                  {/* Central Typographic Matrix */}
-                  <div className="relative z-10 my-auto space-y-3 py-3">
-                    <div className="space-y-1">
-                      <span className="font-sans text-[9px] uppercase tracking-widest text-zinc-500 font-medium">
-                        PRIMARY OBJECTIVE
-                      </span>
-                      <p className="text-lg sm:text-xl font-serif font-normal text-zinc-100 uppercase tracking-tight">
-                        Educational Empowerment &amp; Social Continuity
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3 pt-2.5 border-t border-white/[0.06] font-sans text-xs">
-                      <div>
-                        <span className="text-zinc-500 block text-[9px] uppercase tracking-wider">COHORT</span>
-                        <span className="text-zinc-300">Marginalized School Youth</span>
-                      </div>
-                      <div>
-                        <span className="text-zinc-500 block text-[9px] uppercase tracking-wider">METHODOLOGY</span>
-                        <span className="text-zinc-300">Casework &amp; Group Work</span>
-                      </div>
-                    </div>
+                  {/* Center Subtle Watermark / Architectural Accent */}
+                  <div className="relative z-10 my-auto py-8">
+                    <span className="type-meta text-sky-400/80 block mb-1 text-[10px]">
+                      FIELD DOCUMENTATION
+                    </span>
+                    <h4 className="font-serif text-2xl sm:text-3xl text-zinc-100 uppercase tracking-tight">
+                      Aksharanila<span className="text-sky-400">.</span>
+                    </h4>
                   </div>
 
                   {/* Bottom Colophon Bar */}
-                  <div className="relative z-10 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans">
-                    <span className="text-zinc-500 uppercase tracking-widest text-[9px]">
+                  <div className="relative z-10 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-sans">
+                    <span className="text-zinc-400 uppercase tracking-widest text-[9px]">
                       STATUS: FIELD EVALUATED
                     </span>
                     <span className="text-sky-400 flex items-center gap-1 font-medium">
-                      <span>EXPLORE RECORD</span>
-                      <ArrowUpRight className="h-3 w-3" />
+                      <span>CASE DOSSIER</span>
+                      <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </div>
                 </motion.div>
@@ -388,7 +381,7 @@ export function Projects() {
                     y: mousePos2.y,
                   }}
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                  className="relative min-h-[220px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090b0a] p-4 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-teal-400/40"
+                  className="relative min-h-[260px] sm:min-h-[320px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090b0a] p-5 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-teal-400/40"
                 >
                   {/* Background Project Specimen Image */}
                   <Image
@@ -396,54 +389,40 @@ export function Projects() {
                     alt={media.projects.ecoscan.alt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-center grayscale contrast-110 opacity-30 group-hover:opacity-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    className={`object-cover ${media.projects.ecoscan.objectPosition || "object-center"} transition-all duration-700 ease-out group-hover:scale-105 ${
+                      media.projects.ecoscan.isReal
+                        ? "opacity-90 group-hover:opacity-100"
+                        : "grayscale contrast-110 opacity-40 group-hover:opacity-65 group-hover:grayscale-0"
+                    }`}
                     loading="lazy"
                   />
-                  {/* Dark Vignette Overlay for Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b0a]/95 via-[#090b0a]/80 to-[#090b0a]/60 pointer-events-none" />
-
-                  {/* Watermark Typographic Architecture */}
-                  <div className="pointer-events-none absolute -bottom-6 -left-6 select-none opacity-5 font-serif text-8xl font-normal uppercase tracking-tighter text-white">
-                    ECOSCAN
-                  </div>
+                  {/* Restrained Gradient Vignette for Legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b0a]/90 via-[#090b0a]/30 to-[#090b0a]/40 pointer-events-none" />
 
                   {/* Top Architectural Specimen Line */}
-                  <div className="relative z-10 flex items-center justify-between text-[10px] font-sans text-zinc-500 uppercase tracking-widest border-b border-white/[0.06] pb-2.5 font-medium">
+                  <div className="relative z-10 flex items-center justify-between text-[10px] font-sans text-zinc-400 uppercase tracking-widest border-b border-white/[0.08] pb-3 font-medium">
                     <span className="text-teal-400">BOTANICAL ARCHIVE // 02</span>
                     <span>LISSAH CAMPUS FLORA</span>
                   </div>
 
-                  {/* Central Typographic Matrix: Botanical Schema */}
-                  <div className="relative z-10 my-auto space-y-3 py-3">
-                    <div className="space-y-1">
-                      <span className="font-sans text-[9px] uppercase tracking-widest text-zinc-500 font-medium">
-                        TAXONOMIC INTEGRATION
-                      </span>
-                      <p className="text-lg sm:text-xl font-serif font-normal text-zinc-100 uppercase tracking-tight">
-                        Flora Identification &amp; Digital Educational Design
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3 pt-2.5 border-t border-white/[0.06] font-sans text-xs">
-                      <div>
-                        <span className="text-zinc-500 block text-[9px] uppercase tracking-wider">TAXONOMY</span>
-                        <span className="text-zinc-300">Tree &amp; Plant Classification</span>
-                      </div>
-                      <div>
-                        <span className="text-zinc-500 block text-[9px] uppercase tracking-wider">DELIVERABLE</span>
-                        <span className="text-zinc-300">Digital QR Information Plates</span>
-                      </div>
-                    </div>
+                  {/* Center Subtle Watermark / Architectural Accent */}
+                  <div className="relative z-10 my-auto py-8">
+                    <span className="type-meta text-teal-400/80 block mb-1 text-[10px]">
+                      BIODIVERSITY TAXONOMY
+                    </span>
+                    <h4 className="font-serif text-2xl sm:text-3xl text-zinc-100 uppercase tracking-tight">
+                      Ecoscan<span className="text-teal-400">.</span>
+                    </h4>
                   </div>
 
                   {/* Bottom Colophon Bar */}
-                  <div className="relative z-10 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans">
-                    <span className="text-zinc-500 uppercase tracking-widest text-[9px]">
+                  <div className="relative z-10 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-sans">
+                    <span className="text-zinc-400 uppercase tracking-widest text-[9px]">
                       STATUS: DIGITALLY CATALOGED
                     </span>
                     <span className="text-teal-400 flex items-center gap-1 font-medium">
-                      <span>VIEW TAXONOMY</span>
-                      <ArrowUpRight className="h-3 w-3" />
+                      <span>TAXONOMY DOSSIER</span>
+                      <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </div>
                 </motion.div>
@@ -465,7 +444,7 @@ export function Projects() {
                 </div>
 
                 {/* Role & Context Colophon */}
-                <div className="space-y-1 py-2.5 px-3.5 rounded-xs bg-white/[0.02] border border-white/[0.06] font-sans text-xs">
+                <div className="space-y-1 py-2.5 px-3.5 rounded-xs bg-white/[0.02] border border-white/[0.06] font-sans text-xs transition-colors duration-300 group-hover:border-white/[0.12] group-hover:bg-white/[0.04]">
                   <div className="flex items-center gap-2 text-zinc-300">
                     <span className="text-teal-400 font-medium">ROLE:</span>
                     <span className="font-medium text-white">{ecoscan.role}</span>
@@ -496,7 +475,7 @@ export function Projects() {
                   {ecoscan.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-xs bg-white/[0.04] border border-white/[0.08] font-sans text-[10px] uppercase tracking-wider text-zinc-300"
+                      className="px-2.5 py-1 rounded-xs bg-white/[0.04] border border-white/[0.08] font-sans text-[10px] uppercase tracking-wider text-zinc-300 transition-colors duration-300 group-hover:border-teal-400/25 group-hover:text-zinc-200"
                     >
                       {tag}
                     </span>

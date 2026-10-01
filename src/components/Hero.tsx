@@ -95,7 +95,7 @@ export function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-[100dvh] w-full flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-10 md:pt-28 md:pb-10 px-5 sm:px-8 lg:px-12 select-none overflow-hidden"
+      className="relative min-h-[100dvh] w-full flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-10 md:pt-28 md:pb-10 px-5 sm:px-8 lg:px-12 select-none overflow-hidden scroll-mt-24"
     >
       {/* BACKGROUND: Soft radial light + slow ambient breath */}
       <motion.div
@@ -123,20 +123,16 @@ export function Hero() {
           className="absolute -top-32 left-1/2 -translate-x-1/2 w-[650px] sm:w-[850px] h-[500px] rounded-full bg-gradient-to-b from-sky-400 via-sky-600/25 to-transparent blur-[140px]"
         />
 
-        {/* Swiss Architectural Registration Marks */}
-        <div className="absolute top-24 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
+        {/* Swiss Architectural Registration Marks (Desktop only, positioned clear of metadata) */}
+        <div className="hidden md:block absolute top-28 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
           + 09°55&apos;N
         </div>
-        <div className="absolute top-24 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
+        <div className="hidden md:block absolute top-28 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
           + 76°58&apos;E
         </div>
-        <div className="absolute bottom-10 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
-          + 2026.01
-        </div>
-        <div className="absolute bottom-10 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
-          + MONOGRAPH
-        </div>
       </motion.div>
+
+
 
       {/* TOP COMPOSITION: Small location / Identity Marker (Step 2) */}
       <motion.div
@@ -218,7 +214,7 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Subtle Understated Portrait (Never Dominates) */}
+          {/* Right Column: Editorial Personal-Brand Portrait Plate */}
           <motion.div
             variants={supportingVariants}
             initial="hidden"
@@ -226,21 +222,33 @@ export function Hero() {
             style={{ y: shouldReduceMotion ? 0 : portraitY }}
             className="hidden md:flex md:col-span-4 lg:col-span-3 justify-end"
           >
-            <div className="group relative overflow-hidden rounded-sm border border-white/[0.08] bg-zinc-900/60 p-1 w-24 h-32 lg:w-28 lg:h-36 transition-all duration-500 hover:border-white/20">
-              <div className="relative w-full h-full overflow-hidden grayscale contrast-110 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-out">
-                <Image
-                  src={media.hero.portrait.src}
-                  alt={media.hero.portrait.alt}
-                  fill
-                  priority
-                  sizes="120px"
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
+            <div className="group relative">
+              {/* Soft ambient backlight aura */}
+              <div className="absolute -inset-1 rounded-sm bg-gradient-to-tr from-sky-500/15 via-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-700" />
 
-              {/* Discreet Micro Badge */}
-              <div className="absolute bottom-1 right-1 px-1 py-0.5 bg-black/80 backdrop-blur-xs font-sans text-[9px] uppercase tracking-wider text-zinc-400">
-                AS / 26
+              <div className="relative overflow-hidden rounded-sm border border-white/[0.12] bg-[#0c0e12] p-1.5 w-28 h-36 lg:w-32 lg:h-40 shadow-[0_12px_36px_rgba(0,0,0,0.7)] transition-all duration-500 group-hover:border-sky-400/40 group-hover:-translate-y-0.5">
+                <div className="relative w-full h-full overflow-hidden rounded-xs bg-[#08090c]">
+                  <Image
+                    src={media.hero.portrait.src}
+                    alt={media.hero.portrait.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 112px, 128px"
+                    className={`object-cover ${media.hero.portrait.objectPosition || "object-top"} contrast-[1.05] brightness-[1.02] transition-transform duration-700 ease-out group-hover:scale-[1.03]`}
+                  />
+                  {/* Subtle Gradient Vignette */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Discreet Micro Colophon */}
+                  <div className="absolute bottom-1 left-1.5 right-1.5 flex items-center justify-between pointer-events-none">
+                    <span className="font-sans text-[8px] uppercase tracking-[0.16em] text-zinc-300 font-medium">
+                      AJIN SHIBU
+                    </span>
+                    <span className="font-sans text-[8px] uppercase tracking-[0.16em] text-sky-400 font-semibold">
+                      2026
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -19,45 +19,46 @@ const campaignThemes = [
 const purposePoints = [
   {
     number: "01",
-    title: "Promoting Mental Health Awareness",
-    description: "Fostering literacy on psychological distress, anxiety, and depressive symptoms across student and youth communities.",
+    title: "Awareness & Literacy",
+    description: "Fostering understanding of emotional distress, anxiety, and depressive symptoms across student communities.",
   },
   {
     number: "02",
-    title: "Encouraging Open Dialogue",
-    description: "Creating non-judgmental, psychologically safe spaces for young individuals to articulate their emotional difficulties.",
+    title: "Psychologically Safe Spaces",
+    description: "Creating non-judgmental environments for young people to express vulnerability and seek guidance.",
   },
   {
     number: "03",
-    title: "Reducing Stigma",
-    description: "Dismantling historical misconceptions and social shame associated with mental illness, therapy, and clinical care.",
+    title: "Stigma Deconstruction",
+    description: "Dismantling historical misconceptions and social shame associated with therapy and psychiatric care.",
   },
   {
     number: "04",
-    title: "Fostering Emotional Resilience",
-    description: "Equipping young minds with coping strategies, self-awareness, and psychological grounding during developmental transitions.",
+    title: "Emotional Resilience",
+    description: "Equipping young minds with coping strategies, self-awareness, and psychological grounding.",
   },
   {
     number: "05",
-    title: "Counseling & Support Literacy",
-    description: "Clarifying the role of professional counseling, psychotherapy, and clinical psychiatric services.",
+    title: "Counseling Literacy",
+    description: "Demystifying professional psychotherapy, clinical psychiatry, and therapeutic intervention.",
   },
   {
     number: "06",
-    title: "Normalizing Help-Seeking",
-    description: "Transforming the act of reaching out for psychological support from perceived vulnerability into courageous self-care.",
+    title: "Help-Seeking as Strength",
+    description: "Reframing the act of asking for psychological help as an essential form of self-care.",
   },
   {
     number: "07",
     title: "Mental Health as Human Rights",
-    description: "Advocating for accessible, dignified, and rights-based mental health ecosystems for every young person.",
+    description: "Advocating for accessible, dignified, and rights-based mental health support for every young person.",
   },
   {
     number: "08",
-    title: "Connecting Support Networks",
-    description: "Directly linking individuals in acute distress to verified clinical counselors, hospital departments, and crisis resources.",
+    title: "Support Network Bridges",
+    description: "Connecting individuals in distress to verified clinical counselors, hospital departments, and care resources.",
   },
 ];
+
 
 export function YuvaManass() {
   const containerRef = useRef<HTMLElement>(null);
@@ -76,7 +77,18 @@ export function YuvaManass() {
   const word2Y = useTransform(scrollYProgress, [0, 0.5], shouldReduceMotion ? [0, 0] : [40, -15]);
   const word3Y = useTransform(scrollYProgress, [0, 0.5], shouldReduceMotion ? [0, 0] : [60, -20]);
 
-  // Mask reveal variants
+  // Scroll-linked x dispersion that begins offset and settles cleanly — desktop only
+  // Each word starts from a different side and converges as the section enters
+  const word1X = useTransform(scrollYProgress, [0.05, 0.35], shouldReduceMotion ? [0, 0] : [-24, 0]);
+  const word2X = useTransform(scrollYProgress, [0.1, 0.4], shouldReduceMotion ? [0, 0] : [18, 0]);
+  const word3X = useTransform(scrollYProgress, [0.15, 0.45], shouldReduceMotion ? [0, 0] : [-16, 0]);
+
+  // Opacity follows convergence — each word fades in as it settles
+  const word1Opacity = useTransform(scrollYProgress, [0.05, 0.3], shouldReduceMotion ? [1, 1] : [0.3, 1]);
+  const word2Opacity = useTransform(scrollYProgress, [0.1, 0.35], shouldReduceMotion ? [1, 1] : [0.3, 1]);
+  const word3Opacity = useTransform(scrollYProgress, [0.15, 0.4], shouldReduceMotion ? [1, 1] : [0.3, 1]);
+
+  // Mask reveal variants (mobile — simpler entrance)
   const maskVariants = {
     hidden: { y: "115%" },
     visible: {
@@ -94,13 +106,57 @@ export function YuvaManass() {
     },
   };
 
+  // Stagger container for campaign themes flowing reveal
+  const themesContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.07,
+        delayChildren: shouldReduceMotion ? 0 : 0.1,
+      },
+    },
+  };
+
+  const themeItemVariants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: cubicEase },
+    },
+  };
+
+  // Purpose points stagger
+  const purposeContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.08,
+        delayChildren: shouldReduceMotion ? 0 : 0.1,
+      },
+    },
+  };
+
+  const purposeItemVariants = {
+    hidden: { opacity: 0, y: 14 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: cubicEase },
+    },
+  };
+
+
   return (
     <section
       ref={containerRef}
       id="yuva-manass"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.06] bg-[#060709] text-zinc-100 select-none overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#060709] text-zinc-100 select-none overflow-hidden scroll-mt-20 sm:scroll-mt-24"
       aria-label="YUVA Manass — Youth Mental Health Awareness Campaign"
     >
+      <div id="yuva" className="scroll-mt-20 sm:scroll-mt-24" />
       {/* Background Calm Atmospheric Aura: Deep Indigo & Cyan Mist */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         {/* Soft slow ambient breathing glow */}
@@ -206,10 +262,10 @@ export function YuvaManass() {
 
           {/* Desktop Layout (3 Lines: ARE / YOU / OKAY?) */}
           <div className="hidden sm:block space-y-1 sm:space-y-2 select-none">
-            {/* Word 1: ARE */}
+            {/* Word 1: ARE — enters from left, converges to center */}
             <div className="overflow-hidden leading-[0.88]">
               <motion.div
-                style={{ y: word1Y }}
+                style={{ y: word1Y, x: word1X, opacity: word1Opacity }}
                 variants={maskVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -220,10 +276,10 @@ export function YuvaManass() {
               </motion.div>
             </div>
 
-            {/* Word 2: YOU */}
+            {/* Word 2: YOU — enters from right, slightly delayed */}
             <div className="overflow-hidden leading-[0.88]">
               <motion.div
-                style={{ y: word2Y }}
+                style={{ y: word2Y, x: word2X, opacity: word2Opacity }}
                 variants={maskVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -235,10 +291,10 @@ export function YuvaManass() {
               </motion.div>
             </div>
 
-            {/* Word 3: OKAY? */}
+            {/* Word 3: OKAY? — enters from left, last to settle */}
             <div className="overflow-hidden leading-[0.88]">
               <motion.div
-                style={{ y: word3Y }}
+                style={{ y: word3Y, x: word3X, opacity: word3Opacity }}
                 variants={maskVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -250,6 +306,7 @@ export function YuvaManass() {
               </motion.div>
             </div>
           </div>
+
         </div>
 
         {/* ============================================================== */}
@@ -275,13 +332,14 @@ export function YuvaManass() {
           {/* Right Column: Grounded Editorial Story */}
           <div className="lg:col-span-5 space-y-3 text-zinc-300 font-light text-base sm:text-lg leading-[1.75] max-w-xl">
             <p>
-              Founded by Ajin Shibu, YUVA Manass is a grassroots youth mental health awareness initiative created to open honest dialogue around emotional distress, normalize psychological help-seeking, and dismantle the isolation that so often accompanies psychological struggle.
+              YUVA Manass is a youth mental health awareness campaign created to foster open dialogues around emotional struggle, dismantle social stigma, and normalize reaching out for psychological support.
             </p>
             <p className="text-sm font-sans text-zinc-400 leading-[1.7]">
-              Integrating clinical psychiatric perspectives with youth engagement, the campaign creates accessible pathways between vulnerable young people and professional counseling support.
+              Bridging psychiatric awareness with empathetic youth engagement, the campaign connects emerging student communities with verified counseling and institutional care networks.
             </p>
           </div>
         </motion.div>
+
 
         {/* ============================================================== */}
         {/* EDITORIAL CAMPAIGN VISUAL ARCHIVE PLATE                        */}
@@ -293,24 +351,28 @@ export function YuvaManass() {
           viewport={{ once: true, margin: "-10%" }}
           className="my-10 sm:my-14"
         >
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-sm border border-white/[0.08] overflow-hidden bg-[#090b0e] group shadow-2xl">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-sm border border-white/[0.1] overflow-hidden bg-[#090b0e] group shadow-2xl transition-all duration-500 hover:border-sky-400/30">
             <Image
               src={media.yuvaManass.campaign.src}
               alt={media.yuvaManass.campaign.alt}
               fill
               sizes="(max-width: 1280px) 100vw, 1200px"
-              className="object-cover object-center grayscale contrast-105 opacity-40 group-hover:opacity-65 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+              className={`object-cover ${media.yuvaManass.campaign.objectPosition || "object-center"} transition-all duration-700 ease-out group-hover:scale-[1.02] ${
+                media.yuvaManass.campaign.isReal
+                  ? "contrast-[1.03] brightness-[1.01] opacity-90 group-hover:opacity-100"
+                  : "grayscale contrast-105 opacity-40 group-hover:opacity-65 group-hover:grayscale-0"
+              }`}
               loading="lazy"
             />
-            {/* Dark Vignette Overlay for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#060709] via-transparent to-[#060709]/50 pointer-events-none" />
+            {/* Restrained Vignette Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060709]/90 via-transparent to-[#060709]/30 pointer-events-none" />
 
             {/* Architectural Specimen Overlay Marks */}
-            <div className="absolute top-3 left-4 flex items-center gap-2 type-meta text-sky-400">
+            <div className="absolute top-3 left-4 flex items-center gap-2 type-meta text-sky-400 pointer-events-none">
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
               <span>FIELD ARCHIVE // YUVA MANASS ADVOCACY</span>
             </div>
-            <div className="absolute bottom-3 right-4 type-meta text-zinc-400">
+            <div className="absolute bottom-3 right-4 type-meta text-zinc-400 pointer-events-none">
               <span>MENTAL HEALTH AS HUMAN RIGHTS</span>
             </div>
           </div>
@@ -319,13 +381,7 @@ export function YuvaManass() {
         {/* ============================================================== */}
         {/* FLOWING TYPOGRAPHY SYSTEM: CAMPAIGN THEMES (No Badges/Pills)   */}
         {/* ============================================================== */}
-        <motion.div
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-10%" }}
-          className="py-10 sm:py-14 border-b border-white/[0.08]"
-        >
+        <div className="py-10 sm:py-14 border-b border-white/[0.08]">
           <div className="flex items-center justify-between pb-4">
             <span className="type-meta text-zinc-500">
               Flowing Thematic Focus
@@ -335,22 +391,35 @@ export function YuvaManass() {
             </span>
           </div>
 
-          {/* Flowing Typography System */}
-          <div className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3">
+          {/* Staggered Flowing Typography System */}
+          <motion.div
+            variants={themesContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-10%" }}
+            className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3"
+          >
             {campaignThemes.map((theme, i) => (
               <React.Fragment key={theme}>
-                <span className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-zinc-300 hover:text-sky-400 transition-colors duration-300 cursor-default">
+                <motion.span
+                  variants={themeItemVariants}
+                  className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-zinc-300 hover:text-sky-400 transition-colors duration-300 cursor-default"
+                >
                   {theme}
-                </span>
+                </motion.span>
                 {i < campaignThemes.length - 1 && (
-                  <span className="text-zinc-600 font-sans text-base sm:text-xl font-light select-none">
+                  <motion.span
+                    variants={themeItemVariants}
+                    className="text-zinc-600 font-sans text-base sm:text-xl font-light select-none"
+                  >
                     /
-                  </span>
+                  </motion.span>
                 )}
               </React.Fragment>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
+
 
         {/* ============================================================== */}
         {/* CORE PURPOSE: 8-POINT EDITORIAL MANIFESTO                     */}
@@ -370,14 +439,17 @@ export function YuvaManass() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 sm:gap-y-6">
+          <motion.div
+            variants={purposeContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-5%" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 sm:gap-y-6"
+          >
             {purposePoints.map((point) => (
               <motion.div
                 key={point.number}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-5%" }}
-                transition={{ duration: 0.6, ease: cubicEase }}
+                variants={purposeItemVariants}
                 className="group relative pb-4 sm:pb-5 border-b border-white/[0.06] hover:border-sky-400/40 transition-colors duration-500"
               >
                 <div className="flex items-baseline gap-3 mb-1.5">
@@ -394,7 +466,7 @@ export function YuvaManass() {
                 </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* ============================================================== */}

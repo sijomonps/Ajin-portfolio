@@ -223,29 +223,29 @@
 
 ### 2.8 Visual Archive & Gallery (ArchiveCertifications)
 
-#### Slots 16–27: 12 Archival Gallery Folios
-1. **`gallery-msw-academic.webp`** (`3:4` portrait, `1200 × 1600 px`, **Essential**): MSW academic graduation, university research, or formal scholar portrait. *(Folio 01 Featured Card)*.
-2. **`gallery-fieldwork.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): Grassroots fieldwork group photo, community interaction.
-3. **`gallery-psychiatric.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): Department of Psychiatry IQRAA clinical team or department doorway.
-4. **`gallery-community.webp`** (`4:3` landscape, `1200 × 900 px`, **Medium**): Community awareness rally, street play, or public health campaign.
-5. **`gallery-aksharanila.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): AKSHARANILA group photo or project launch with children.
-6. **`gallery-ecoscan.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): ECOSCAN students tagging flora on LISSAH campus.
-7. **`gallery-yuva-manass.webp`** (`16:9` landscape, `1600 × 900 px`, **Essential**): YUVA Manass campaign banner, student gathering.
-8. **`gallery-amdg.webp`** (`16:9` landscape, `1600 × 900 px`, **High**): AMDG Media workstation, video editing timeline, branding collateral.
-9. **`gallery-workshops.webp`** (`4:3` landscape, `1200 × 900 px`, **Medium**): Interactive seminar workshop hall, participants taking notes.
-10. **`gallery-seminars.webp`** (`4:3` landscape, `1200 × 900 px`, **Medium**): Presentation at a state or national academic social work conference.
-11. **`gallery-volunteering.webp`** (`4:3` landscape, `1200 × 900 px`, **Medium**): Group picture of volunteers in distinctive volunteer t-shirts/badges.
-12. **`gallery-leadership.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): Ajin addressing an audience at a podium or moderating a panel.
+#### Slots 16–21: 6 Archival Gallery Folios
+1. **`gallery-01.webp`** (`3:4` portrait, `1200 × 1600 px`, **Essential**): MSW academic graduation, university research, or formal scholar portrait. *(Folio 01 Featured Card — currently active with `/images/ajin-shibu.png`)*.
+2. **`gallery-02.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): Department of Psychiatry IQRAA clinical team, department entrance, or multi-disciplinary conference.
+3. **`gallery-03.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): AKSHARANILA project inauguration, classroom session, or children's mentorship circle.
+4. **`gallery-04.webp`** (`4:3` landscape, `1200 × 900 px`, **High**): ECOSCAN students and botanists documenting campus flora on LISSAH campus.
+5. **`gallery-05.webp`** (`4:3` landscape, `1200 × 900 px`, **Essential**): YUVA Manass campaign seminar banner, youth emotional dialogue session, or group discussion.
+6. **`gallery-06.webp`** (`16:9` landscape, `1600 × 900 px`, **High**): Good Samaritan Rehabilitation & Training Centre resident activities, vocational training, or PwD sports meet.
 
 ---
 
-### 2.9 Official Certificates & Credentials
+### 2.9 Official Certificates & Credentials (ArchiveCertifications)
 
-#### Slots 28–31: High-Resolution Scans of Verified Certificates
-1. **`cert-kaps.webp`** (`3:4` vertical, `1200 × 1600 px`, **High**): Kerala Association of Professional Social Workers (KAPS) Membership Certificate or official ID. *(Membership number masked or discreet).*
-2. **`cert-clinical.webp`** (`3:2` horizontal, `1200 × 800 px`, **High**): Official Clinical Internship Completion Certificate issued by IQRAA Department of Psychiatry.
-3. **`cert-rehab.webp`** (`3:2` horizontal, `1200 × 800 px`, **High**): Good Samaritan Rehabilitation & Training Centre Internship Certificate.
-4. **`cert-technical.webp`** (`3:2` horizontal, `1200 × 800 px`, **Medium**): Cyber Security, Canva Skills, Graphic Design, or Software Product Developer Certificates.
+#### Slots 22–31: 10 Verified Credential Scans & Certificates
+1. **`certificate-kaps.webp`** (`4:3` horizontal, `1200 × 900 px`, **High**): Kerala Association of Professional Social Workers (KAPS) Membership Certificate scan. *(Membership number masked or discreet).*
+2. **`certificate-iqraa.webp`** (`4:3` horizontal, `1200 × 900 px`, **High**): Official Psychiatric Social Work Clinical Internship Certificate issued by IQRAA Department of Psychiatry.
+3. **`certificate-good-samaritan.webp`** (`4:3` horizontal, `1200 × 900 px`, **High**): Good Samaritan Rehabilitation & Training Centre Internship Certificate scan.
+4. **`certificate-fieldwork.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Health Dialogue Concurrent Fieldwork Practicum & AKSHARANILA Certificate scan.
+5. **`certificate-sahrudeya.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Welfare Services Ernakulam (Sahrudeya) Social Welfare Administration Certificate scan.
+6. **`certificate-cybersecurity.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Certified Cyber Security Professional Credential scan.
+7. **`certificate-canva.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Visual Communication & Canva Skills Add-on Course Certificate scan.
+8. **`certificate-graphic-design.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Graphic Designer Professional Credential scan.
+9. **`certificate-software-dev.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Software Product Developer Professional Credential scan.
+10. **`certificate-skillup.webp`** (`4:3` horizontal, `1200 × 900 px`, **Medium**): Skillup Cross-Disciplinary Leadership & Professional Communication Certificate scan.
 
 - **Scanning Advice for Certificates**:
   - Scan directly on a flatbed scanner at 300 DPI, or take a straight-on, glare-free photo under diffused daylight.

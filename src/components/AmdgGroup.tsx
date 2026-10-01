@@ -22,7 +22,7 @@ const amdgPillars: PillarItem[] = [
     code: "01",
     title: "DIGITAL MEDIA",
     tag: "AMDG Media Direction",
-    description: "Creative visual communications, editorial design, and digital distribution tailored for purposeful initiatives.",
+    description: "Editorial visual communication, publication design, and purposeful media direction.",
     icon: <Megaphone className="h-4 w-4 text-sky-400" />,
   },
   {
@@ -30,7 +30,7 @@ const amdgPillars: PillarItem[] = [
     code: "02",
     title: "DESIGN",
     tag: "Brand & Visual Architecture",
-    description: "Modern typographic systems, brand identities, publication layouts, and digital experiences.",
+    description: "Brand identities, typography systems, and high-legibility publication layouts.",
     icon: <Palette className="h-4 w-4 text-sky-400" />,
   },
   {
@@ -38,7 +38,7 @@ const amdgPillars: PillarItem[] = [
     code: "03",
     title: "TECHNOLOGY",
     tag: "Digital Solutions & Systems",
-    description: "Web development, system architecture, and technology-driven platforms for non-profit and community growth.",
+    description: "Web platforms, software workflows, and digital infrastructure for community growth.",
     icon: <Cpu className="h-4 w-4 text-sky-400" />,
   },
   {
@@ -46,7 +46,7 @@ const amdgPillars: PillarItem[] = [
     code: "04",
     title: "ENTREPRENEURSHIP",
     tag: "Venture Incubation",
-    description: "Synthesizing entrepreneurial models with social responsibility to build sustainable, value-driven civic initiatives.",
+    description: "Sustainable venture models aligning civic responsibility with enterprise development.",
     icon: <Target className="h-4 w-4 text-sky-400" />,
   },
   {
@@ -54,10 +54,11 @@ const amdgPillars: PillarItem[] = [
     code: "05",
     title: "SOCIAL IMPACT",
     tag: "Ethical Human Systems",
-    description: "Directing digital capability and creative media toward human empowerment, mental health, and community welfare.",
+    description: "Directing creative capability toward human empowerment, mental health, and community welfare.",
     icon: <Layers className="h-4 w-4 text-sky-400" />,
   },
 ];
+
 
 export function AmdgGroup() {
   const containerRef = useRef<HTMLElement>(null);
@@ -76,13 +77,36 @@ export function AmdgGroup() {
   const driftLeft = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [30, -30]);
   const anchorScale = useTransform(scrollYProgress, [0, 0.5, 1], shouldReduceMotion ? [1, 1, 1] : [0.94, 1.02, 0.98]);
 
+  // Stagger container for pillar rows
+  const pillarContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: shouldReduceMotion ? 0 : 0.09,
+        delayChildren: shouldReduceMotion ? 0 : 0.1,
+      },
+    },
+  };
+
+  const pillarRowVariants = {
+    hidden: { opacity: 0, x: shouldReduceMotion ? 0 : -12 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.75, ease: cubicEase },
+    },
+  };
+
+
   return (
     <section
       ref={containerRef}
       id="amdg-group"
-      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#07080b] text-zinc-100 select-none overflow-hidden"
+      className="relative py-14 sm:py-20 md:py-28 lg:py-36 border-t border-white/[0.08] bg-[#07080b] text-zinc-100 select-none overflow-hidden scroll-mt-20 sm:scroll-mt-24"
       aria-label="AMDG Group — Entrepreneurial & Digital Venture Ecosystem"
     >
+      <div id="amdg" className="scroll-mt-20 sm:scroll-mt-24" />
       {/* Background Architectural Markings & Cybernetic Grid Lines */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         {/* Subtle grid pattern overlay */}
@@ -199,10 +223,11 @@ export function AmdgGroup() {
           {/* Right Column: Strategic Colophon & Action CTA */}
           <div className="lg:col-span-5 space-y-4">
             <p className="text-base sm:text-lg font-light text-zinc-300 leading-[1.75] max-w-xl">
-              Founded and chaired by Ajin Shibu, AMDG Group serves as the entrepreneurial engine connecting modern technological development, creative communication direction through AMDG Media, and structured civic welfare initiatives.
+              AMDG Group serves as an entrepreneurial ecosystem connecting technological development, creative media direction through AMDG Media, and structured civic welfare initiatives.
             </p>
 
             <div className="pt-2 border-t border-white/[0.06] space-y-1.5 font-sans text-xs text-zinc-400">
+
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500 uppercase tracking-wider text-[10px]">LEADERSHIP:</span>
                 <span className="text-zinc-200">Ajin Shibu, Founder &amp; Chairman</span>
@@ -221,7 +246,7 @@ export function AmdgGroup() {
             <div className="pt-2">
               <MagneticButton
                 asLink
-                href="https://amdggroup.in"
+                href="https://www.amdgmedia.co.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 strength={0.2}
@@ -246,24 +271,28 @@ export function AmdgGroup() {
           transition={{ duration: 0.8, ease: cubicEase }}
           className="my-10 sm:my-14"
         >
-          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-sm border border-white/[0.08] overflow-hidden bg-[#07090d] group shadow-2xl">
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-sm border border-white/[0.1] overflow-hidden bg-[#07090d] group shadow-2xl transition-all duration-500 hover:border-sky-400/40">
             <Image
               src={media.amdg.brand.src}
               alt={media.amdg.brand.alt}
               fill
               sizes="(max-width: 1280px) 100vw, 1200px"
-              className="object-cover object-center grayscale contrast-105 opacity-40 group-hover:opacity-65 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+              className={`object-cover ${media.amdg.brand.objectPosition || "object-center"} transition-all duration-700 ease-out group-hover:scale-[1.02] ${
+                media.amdg.brand.isReal
+                  ? "contrast-[1.05] brightness-[1.02] opacity-95 group-hover:opacity-100"
+                  : "grayscale contrast-105 opacity-40 group-hover:opacity-65 group-hover:grayscale-0"
+              }`}
               loading="lazy"
             />
-            {/* Dark Vignette Overlay for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#07080b] via-transparent to-[#07080b]/50 pointer-events-none" />
+            {/* Restrained Vignette Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07080b]/90 via-transparent to-[#07080b]/30 pointer-events-none" />
 
             {/* Architectural Specimen Overlay Marks */}
-            <div className="absolute top-3 left-4 flex items-center gap-2 type-meta text-sky-400">
+            <div className="absolute top-3 left-4 flex items-center gap-2 type-meta text-sky-400 pointer-events-none">
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
               <span>VENTURE ARCHIVE // AMDG MEDIA &amp; SYSTEMS</span>
             </div>
-            <div className="absolute bottom-3 right-4 type-meta text-zinc-400">
+            <div className="absolute bottom-3 right-4 type-meta text-zinc-400 pointer-events-none">
               <span>EST. 2026 • OFFICIAL PLATFORM</span>
             </div>
           </div>
@@ -287,15 +316,18 @@ export function AmdgGroup() {
             </span>
           </div>
 
-          {/* Dynamic Typographic Rows */}
-          <div className="space-y-1">
+          {/* Dynamic Typographic Rows — Staggered Entrance */}
+          <motion.div
+            variants={pillarContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-5%" }}
+            className="space-y-1"
+          >
             {amdgPillars.map((pillar) => (
               <motion.div
                 key={pillar.id}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-5%" }}
-                transition={{ duration: 0.6, ease: cubicEase }}
+                variants={pillarRowVariants}
                 className="group relative py-4 sm:py-6 border-b border-white/[0.06] hover:border-sky-400/40 transition-all duration-500 cursor-default"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-8 items-baseline">
@@ -324,7 +356,8 @@ export function AmdgGroup() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

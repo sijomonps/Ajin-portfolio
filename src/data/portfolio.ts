@@ -109,13 +109,14 @@ export const personalInfo: PersonalInfo = {
     "CREATIVITY."
   ],
   summary:
-    "A passionate social work professional pursuing Master of Social Work (MSW) at Marian College Kuttikkanam with specialization in Medical & Psychiatry. Integrating social work practice, mental health advocacy, leadership, entrepreneurship, and creative digital communication to craft intentional social impact.",
+    "Social work practitioner and MSW scholar specializing in Medical & Psychiatry at Marian College Kuttikkanam. Working across clinical casework, youth mental health advocacy, and purposeful entrepreneurship.",
   vision:
-    "To integrate social work practice, mental health promotion, leadership, and digital innovation to respond courageously to emerging human challenges.",
+    "To integrate clinical social work, youth mental health promotion, and purposeful digital innovation into sustainable community impact.",
+
   links: [
     { label: "Email", href: "mailto:ajinshibuofficial@gmail.com" },
     { label: "Phone", href: "tel:+918590527277" },
-    { label: "AMDG Group", href: "https://amdggroup.in" },
+    { label: "AMDG Group", href: "https://www.amdgmedia.co.in/" },
     { label: "YUVA Manass", href: "https://instagram.com" }
   ]
 };
@@ -209,7 +210,7 @@ export const initiatives: Initiative[] = [
     tagline: "Creativity, Digital Innovation & Social Entrepreneurship",
     description:
       "An entrepreneurial ecosystem connecting technology, design, media, and social impact. Houses AMDG Media as a specialized creative unit delivering digital communication, design, and project development.",
-    url: "https://amdggroup.in",
+    url: "https://www.amdgmedia.co.in/",
     highlights: [
       "Fosters digital solutions and creative media for purposeful initiatives",
       "AMDG Media creative engine for graphic design and communications",

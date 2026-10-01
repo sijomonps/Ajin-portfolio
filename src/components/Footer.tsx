@@ -46,7 +46,7 @@ export function Footer() {
   return (
     <footer
       id="contact"
-      className="relative bg-[#060709] border-t border-white/[0.08] pt-14 sm:pt-20 md:pt-28 lg:pt-36 select-none overflow-hidden text-zinc-100"
+      className="relative bg-[#060709] border-t border-white/[0.08] pt-14 sm:pt-20 md:pt-28 lg:pt-36 select-none overflow-hidden text-zinc-100 scroll-mt-20 sm:scroll-mt-24"
       aria-label="Direct Contact and Colophon"
     >
       {/* Background Soft Upward Radial Atmosphere */}
@@ -204,7 +204,7 @@ export function Footer() {
 
             {/* AMDG Group Official Website Link */}
             <a
-              href="https://amdggroup.in"
+              href="https://www.amdgmedia.co.in/"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative block p-4 sm:p-6 lg:p-7 rounded-sm border border-white/[0.08] bg-[#0c0e12] hover:border-sky-400/40 hover:bg-[#101318] transition-all duration-300 focus:outline-none"
