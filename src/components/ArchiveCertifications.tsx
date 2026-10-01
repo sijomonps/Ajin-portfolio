@@ -13,6 +13,8 @@ import {
   FileText,
 } from "lucide-react";
 
+import { media, type GalleryMediaItem } from "@/data/media";
+
 interface CertificateItem {
   id: string;
   code: string;
@@ -20,19 +22,6 @@ interface CertificateItem {
   issuer: string;
   scope: string;
   category: "Professional" | "Clinical" | "Fieldwork" | "Technical" | "Design";
-}
-
-interface GalleryItem {
-  id: string;
-  code: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  description: string;
-  imageSrc?: string;
-  alt?: string;
-  tag: string;
-  spanClass: string;
 }
 
 const certificates: CertificateItem[] = [
@@ -118,70 +107,7 @@ const certificates: CertificateItem[] = [
   },
 ];
 
-const galleryItems: GalleryItem[] = [
-  {
-    id: "portrait-feature",
-    code: "01",
-    title: "Ajin Shibu — Master of Social Work Scholar",
-    subtitle: "Marian College Kuttikkanam (Autonomous)",
-    category: "Academic & Leadership",
-    description: "MSW Scholar in Medical & Psychiatry. Founder of AMDG Group and YUVA Manass, bridging psychiatric healthcare, civic leadership, and digital innovation.",
-    imageSrc: "/images/ajin-shibu.png",
-    alt: "Ajin Shibu — MSW Medical & Psychiatry Scholar and Founder",
-    tag: "Authentic Portrait • Verified 2026",
-    spanClass: "col-span-12 lg:col-span-5 lg:row-span-2 aspect-[3/4] lg:aspect-auto",
-  },
-  {
-    id: "iqraa-archive",
-    code: "02",
-    title: "Psychiatric Clinical Practicum Archive",
-    subtitle: "IQRAA International Hospital, Kozhikode",
-    category: "Clinical Healthcare",
-    description: "NABH-accredited Department of Psychiatry clinical intake observation, multi-disciplinary rounds, patient case histories, and caregiver psycho-education.",
-    tag: "NABH Clinical Dossier",
-    spanClass: "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
-  },
-  {
-    id: "aksharanila-archive",
-    code: "03",
-    title: "AKSHARANILA Community Fieldwork",
-    subtitle: "Health Dialogue Kozhikode",
-    category: "Fieldwork & Education",
-    description: "Fieldwork project empowering economically disadvantaged school students through tailored educational modules, mentoring, and localized family engagement.",
-    tag: "Grassroots Intervention Record",
-    spanClass: "col-span-12 sm:col-span-6 lg:col-span-3 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
-  },
-  {
-    id: "ecoscan-archive",
-    code: "04",
-    title: "ECOSCAN Biodiversity Documentation",
-    subtitle: "LISSAH College Campus Environmental Initiative",
-    category: "Environmental Design",
-    description: "Campus flora cataloging synthesizing botanical taxonomy, environmental literacy, and high-legibility QR digital signage design.",
-    tag: "Campus Flora Index",
-    spanClass: "col-span-12 sm:col-span-6 lg:col-span-4 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
-  },
-  {
-    id: "yuva-manass-archive",
-    code: "05",
-    title: "YUVA Manass — 'Are You Okay?' Campaign",
-    subtitle: "Youth Mental Health Dialogues",
-    category: "Advocacy & Dialogue",
-    description: "Grassroots initiative facilitating Focused Group Discussions, destigmatizing emotional distress, and linking youth with professional counseling services.",
-    tag: "Advocacy Outreach Record",
-    spanClass: "col-span-12 sm:col-span-6 lg:col-span-3 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[4/3]",
-  },
-  {
-    id: "rehab-archive",
-    code: "06",
-    title: "Good Samaritan Rehabilitation Practicum",
-    subtitle: "Institutional Rehabilitation & Training Centre, Kannur",
-    category: "Rehabilitation Systems",
-    description: "Two-month practicum supporting institutional rehabilitation residents, developmental therapy sessions, and community sports marathons for PwDs.",
-    tag: "Institutional Rehabilitation File",
-    spanClass: "col-span-12 sm:col-span-12 lg:col-span-5 min-h-[200px] sm:min-h-[240px] aspect-auto sm:aspect-[16/9] lg:aspect-[4/3]",
-  },
-];
+const galleryItems: GalleryMediaItem[] = media.gallery;
 
 export function ArchiveCertifications() {
   const shouldReduceMotion = useReducedMotion();
@@ -417,7 +343,7 @@ export function ArchiveCertifications() {
           {/* Editorial Composition Grid (Varied Sizes & Large Feature) */}
           <div className="grid grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-stretch">
             {galleryItems.map((item, index) => {
-              const isFeature = !!item.imageSrc;
+              const isFeature = item.id === "portrait-feature";
 
               return (
                 <div
@@ -439,7 +365,7 @@ export function ArchiveCertifications() {
                     /* Large Feature Real Image (Authentic Portrait) */
                     <div className="relative w-full h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[500px] overflow-hidden">
                       <Image
-                        src={item.imageSrc!}
+                        src={item.src}
                         alt={item.alt || item.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 42vw"
@@ -475,9 +401,21 @@ export function ArchiveCertifications() {
                       </div>
                     </div>
                   ) : (
-                    /* Supporting Archival Folio Plates (Authentic Typographic Specimens) */
-                    <div className="p-5 sm:p-6 lg:p-7 flex flex-col justify-between h-full space-y-5">
-                      <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+                    /* Supporting Archival Folio Plates (Authentic Typographic Specimens with Ambient Image) */
+                    <div className="relative p-5 sm:p-6 lg:p-7 flex flex-col justify-between h-full space-y-5 overflow-hidden">
+                      {/* Background Specimen Image */}
+                      <Image
+                        src={item.src}
+                        alt={item.alt || item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover object-center grayscale contrast-110 opacity-25 group-hover:opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                        loading="lazy"
+                      />
+                      {/* Dark Vignette Overlay for Legibility */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e12]/95 via-[#0c0e12]/85 to-[#0c0e12]/70 pointer-events-none" />
+
+                      <div className="relative z-10 flex items-center justify-between pb-3 border-b border-white/[0.06]">
                         <span className="type-meta text-sky-400">
                           FOLIO // {item.code}
                         </span>
@@ -486,7 +424,7 @@ export function ArchiveCertifications() {
                         </span>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="relative z-10 space-y-2">
                         <span className="type-meta text-zinc-500 text-[10px] block">
                           {item.category}
                         </span>
@@ -496,12 +434,12 @@ export function ArchiveCertifications() {
                         <p className="text-xs font-sans text-sky-400/90 font-medium">
                           {item.subtitle}
                         </p>
-                        <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] pt-1 line-clamp-3">
+                        <p className="text-xs sm:text-sm font-sans font-light text-zinc-300 leading-[1.7] pt-1 line-clamp-3">
                           {item.description}
                         </p>
                       </div>
 
-                      <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans text-zinc-500">
+                      <div className="relative z-10 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans text-zinc-500">
                         <span className="type-meta text-zinc-400 text-[10px]">EXPAND ARCHIVE RECORD</span>
                         <ArrowUpRight className="h-3.5 w-3.5 text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </div>
@@ -583,15 +521,15 @@ export function ArchiveCertifications() {
 
               {/* Main Content Area */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {activeLightboxItem.imageSrc ? (
-                  /* Portrait Viewer */
-                  <div className="md:col-span-6 relative aspect-[3/4] w-full rounded-sm overflow-hidden border border-white/[0.1]">
+                {activeLightboxItem.src ? (
+                  /* Specimen Viewer */
+                  <div className="md:col-span-6 relative aspect-[4/3] sm:aspect-[3/4] w-full rounded-sm overflow-hidden border border-white/[0.1] bg-[#07080a]">
                     <Image
-                      src={activeLightboxItem.imageSrc}
+                      src={activeLightboxItem.src}
                       alt={activeLightboxItem.alt || activeLightboxItem.title}
                       fill
-                      sizes="50vw"
-                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-center"
                       priority
                     />
                   </div>

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
+import { media } from "@/data/media";
 import { ArrowUpRight, Sparkles, Compass, ShieldCheck } from "lucide-react";
 
 interface IdentityItem {
@@ -274,6 +276,23 @@ export function About() {
             viewport={{ once: true, margin: "-10%" }}
             className="lg:col-span-5 space-y-4"
           >
+            {/* Editorial Portrait Plate */}
+            <div className="relative w-full aspect-[3/4] max-h-[340px] sm:max-h-[380px] rounded-sm overflow-hidden border border-white/[0.08] bg-[#0c0e12] group shadow-2xl">
+              <Image
+                src={media.about.portrait.src}
+                alt={media.about.portrait.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top grayscale contrast-110 opacity-80 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between type-meta text-[9px] text-zinc-400">
+                <span className="text-sky-400">SCHOLAR &amp; PRACTITIONER</span>
+                <span>AS / 26</span>
+              </div>
+            </div>
+
             <div className="border border-white/[0.08] bg-[#0d0f13] p-5 sm:p-7 rounded-sm space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                 <div className="flex items-center gap-2">

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Heart, MessageCircle, ArrowUpRight } from "lucide-react";
+import { media } from "@/data/media";
 
 const campaignThemes = [
   "Mental Health",
@@ -278,6 +280,39 @@ export function YuvaManass() {
             <p className="text-sm font-sans text-zinc-400 leading-[1.7]">
               Integrating clinical psychiatric perspectives with youth engagement, the campaign creates accessible pathways between vulnerable young people and professional counseling support.
             </p>
+          </div>
+        </motion.div>
+
+        {/* ============================================================== */}
+        {/* EDITORIAL CAMPAIGN VISUAL ARCHIVE PLATE                        */}
+        {/* ============================================================== */}
+        <motion.div
+          variants={fadeUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          className="my-10 sm:my-14"
+        >
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-sm border border-white/[0.08] overflow-hidden bg-[#090b0e] group shadow-2xl">
+            <Image
+              src={media.yuvaManass.campaign.src}
+              alt={media.yuvaManass.campaign.alt}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1200px"
+              className="object-cover object-center grayscale contrast-105 opacity-40 group-hover:opacity-65 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+              loading="lazy"
+            />
+            {/* Dark Vignette Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#060709] via-transparent to-[#060709]/50 pointer-events-none" />
+
+            {/* Architectural Specimen Overlay Marks */}
+            <div className="absolute top-3 left-4 flex items-center gap-2 type-meta text-sky-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              <span>FIELD ARCHIVE // YUVA MANASS ADVOCACY</span>
+            </div>
+            <div className="absolute bottom-3 right-4 type-meta text-zinc-400">
+              <span>MENTAL HEALTH AS HUMAN RIGHTS</span>
+            </div>
           </div>
         </motion.div>
 

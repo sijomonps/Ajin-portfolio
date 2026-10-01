@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, BookOpen, Trees, MapPin } from "lucide-react";
+import { media } from "@/data/media";
 
 interface ProjectData {
   id: string;
@@ -278,19 +280,26 @@ export function Projects() {
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
                   className="relative min-h-[220px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090a0d] p-4 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-sky-400/40"
                 >
-                  {/* Watermark Typographic Architecture */}
-                  <div className="pointer-events-none absolute -bottom-6 -right-6 select-none opacity-5 font-serif text-8xl font-normal uppercase tracking-tighter text-white">
-                    AKSHARA
-                  </div>
+                  {/* Background Project Specimen Image */}
+                  <Image
+                    src={media.projects.aksharanila.src}
+                    alt={media.projects.aksharanila.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-center grayscale contrast-110 opacity-30 group-hover:opacity-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  {/* Dark Vignette Overlay for Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090a0d]/95 via-[#090a0d]/80 to-[#090a0d]/60 pointer-events-none" />
 
                   {/* Top Architectural Specimen Line */}
-                  <div className="flex items-center justify-between text-[10px] font-sans text-zinc-500 uppercase tracking-widest border-b border-white/[0.06] pb-2.5 font-medium">
+                  <div className="relative z-10 flex items-center justify-between text-[10px] font-sans text-zinc-500 uppercase tracking-widest border-b border-white/[0.06] pb-2.5 font-medium">
                     <span className="text-sky-400">PRACTICUM ARCHIVE // 01</span>
                     <span>HEALTH DIALOGUE KOZHIKODE</span>
                   </div>
 
                   {/* Central Typographic Matrix */}
-                  <div className="my-auto space-y-3 py-3">
+                  <div className="relative z-10 my-auto space-y-3 py-3">
                     <div className="space-y-1">
                       <span className="font-sans text-[9px] uppercase tracking-widest text-zinc-500 font-medium">
                         PRIMARY OBJECTIVE
@@ -313,7 +322,7 @@ export function Projects() {
                   </div>
 
                   {/* Bottom Colophon Bar */}
-                  <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans">
+                  <div className="relative z-10 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans">
                     <span className="text-zinc-500 uppercase tracking-widest text-[9px]">
                       STATUS: FIELD EVALUATED
                     </span>
@@ -381,19 +390,31 @@ export function Projects() {
                   transition={{ type: "spring", stiffness: 200, damping: 25 }}
                   className="relative min-h-[220px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090b0a] p-4 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-teal-400/40"
                 >
+                  {/* Background Project Specimen Image */}
+                  <Image
+                    src={media.projects.ecoscan.src}
+                    alt={media.projects.ecoscan.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-center grayscale contrast-110 opacity-30 group-hover:opacity-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  {/* Dark Vignette Overlay for Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b0a]/95 via-[#090b0a]/80 to-[#090b0a]/60 pointer-events-none" />
+
                   {/* Watermark Typographic Architecture */}
                   <div className="pointer-events-none absolute -bottom-6 -left-6 select-none opacity-5 font-serif text-8xl font-normal uppercase tracking-tighter text-white">
                     ECOSCAN
                   </div>
 
                   {/* Top Architectural Specimen Line */}
-                  <div className="flex items-center justify-between text-[10px] font-sans text-zinc-500 uppercase tracking-widest border-b border-white/[0.06] pb-2.5 font-medium">
+                  <div className="relative z-10 flex items-center justify-between text-[10px] font-sans text-zinc-500 uppercase tracking-widest border-b border-white/[0.06] pb-2.5 font-medium">
                     <span className="text-teal-400">BOTANICAL ARCHIVE // 02</span>
                     <span>LISSAH CAMPUS FLORA</span>
                   </div>
 
                   {/* Central Typographic Matrix: Botanical Schema */}
-                  <div className="my-auto space-y-3 py-3">
+                  <div className="relative z-10 my-auto space-y-3 py-3">
                     <div className="space-y-1">
                       <span className="font-sans text-[9px] uppercase tracking-widest text-zinc-500 font-medium">
                         TAXONOMIC INTEGRATION
@@ -416,7 +437,7 @@ export function Projects() {
                   </div>
 
                   {/* Bottom Colophon Bar */}
-                  <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans">
+                  <div className="relative z-10 pt-2.5 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans">
                     <span className="text-zinc-500 uppercase tracking-widest text-[9px]">
                       STATUS: DIGITALLY CATALOGED
                     </span>

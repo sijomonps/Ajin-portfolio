@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
+import { media } from "@/data/media";
 import { MagneticButton } from "./MagneticButton";
 
 export function Hero() {
@@ -228,8 +229,8 @@ export function Hero() {
             <div className="group relative overflow-hidden rounded-sm border border-white/[0.08] bg-zinc-900/60 p-1 w-24 h-32 lg:w-28 lg:h-36 transition-all duration-500 hover:border-white/20">
               <div className="relative w-full h-full overflow-hidden grayscale contrast-110 opacity-70 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700 ease-out">
                 <Image
-                  src="/images/ajin-shibu.png"
-                  alt="Ajin Shibu — Authentic Portrait"
+                  src={media.hero.portrait.src}
+                  alt={media.hero.portrait.alt}
                   fill
                   priority
                   sizes="120px"

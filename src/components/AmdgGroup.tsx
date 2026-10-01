@@ -1,9 +1,11 @@
 "use client";
 
 import React, { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Globe, Layers, Cpu, Palette, Megaphone, Target } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
+import { media } from "@/data/media";
 
 interface PillarItem {
   id: string;
@@ -233,6 +235,39 @@ export function AmdgGroup() {
             </div>
           </div>
         </div>
+
+        {/* ============================================================== */}
+        {/* EDITORIAL BRAND & STUDIO ARCHIVE PLATE                         */}
+        {/* ============================================================== */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.8, ease: cubicEase }}
+          className="my-10 sm:my-14"
+        >
+          <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-sm border border-white/[0.08] overflow-hidden bg-[#07090d] group shadow-2xl">
+            <Image
+              src={media.amdg.brand.src}
+              alt={media.amdg.brand.alt}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1200px"
+              className="object-cover object-center grayscale contrast-105 opacity-40 group-hover:opacity-65 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700 ease-out"
+              loading="lazy"
+            />
+            {/* Dark Vignette Overlay for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07080b] via-transparent to-[#07080b]/50 pointer-events-none" />
+
+            {/* Architectural Specimen Overlay Marks */}
+            <div className="absolute top-3 left-4 flex items-center gap-2 type-meta text-sky-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+              <span>VENTURE ARCHIVE // AMDG MEDIA &amp; SYSTEMS</span>
+            </div>
+            <div className="absolute bottom-3 right-4 type-meta text-zinc-400">
+              <span>EST. 2026 • OFFICIAL PLATFORM</span>
+            </div>
+          </div>
+        </motion.div>
 
         {/* ============================================================== */}
         {/* THE 5 DYNAMIC TYPOGRAPHIC AXES (Not 6 Cards!)                  */}

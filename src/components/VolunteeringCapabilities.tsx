@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { MapPin, HeartHandshake, Sparkles, Languages } from "lucide-react";
+import { media } from "@/data/media";
 
 interface VolunteeringItem {
   number: string;
@@ -12,6 +14,7 @@ interface VolunteeringItem {
   period?: string;
   context: string;
   highlight?: string;
+  mediaKey: keyof typeof media.volunteering;
 }
 
 const volunteeringList: VolunteeringItem[] = [
@@ -21,6 +24,7 @@ const volunteeringList: VolunteeringItem[] = [
     organization: "Marivilli Clinic",
     location: "Ernakulam, Kerala",
     context: "Supported patient intake, health screening coordination, and sensitive community care at a specialized medical camp.",
+    mediaKey: "medicalCamp",
   },
   {
     number: "02",
@@ -28,6 +32,7 @@ const volunteeringList: VolunteeringItem[] = [
     organization: "Puthuppady Grama Panchayat",
     location: "Kozhikode, Kerala",
     context: "Conducted door-to-door community survey facilitating grassroots awareness and enrollment in government healthcare and welfare schemes.",
+    mediaKey: "insuranceSurvey",
   },
   {
     number: "03",
@@ -35,6 +40,7 @@ const volunteeringList: VolunteeringItem[] = [
     organization: "GSRTC Peravoor",
     location: "Peravoor, Kannur",
     context: "Coordinated logistics, participant safety, and encouragement during regional sports events and marathons organized for persons with disabilities.",
+    mediaKey: "pwdSports",
   },
   {
     number: "04",
@@ -43,6 +49,7 @@ const volunteeringList: VolunteeringItem[] = [
     location: "Ernakulam, Kerala",
     highlight: "Led a Focus Group Discussion",
     context: "Moderated and led an in-depth Focused Group Discussion at the symposium exploring youth emotional rights, de-stigmatization, and systemic support.",
+    mediaKey: "mentalHealth",
   },
   {
     number: "05",
@@ -51,6 +58,7 @@ const volunteeringList: VolunteeringItem[] = [
     location: "Kannur, Kerala",
     period: "05 July 2025 – 05 February 2027",
     context: "Long-term voluntary service assisting rehabilitation staff, supporting inmate welfare, and coordinating developmental programs.",
+    mediaKey: "goodSamaritan",
   },
 ];
 
@@ -234,27 +242,44 @@ export function VolunteeringCapabilities() {
                     </div>
 
                     {/* Activity Title + Highlight & One-Line Context (Col 5-12) */}
-                    <div className="lg:col-span-8 space-y-1.5">
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <h3
-                          className={`font-serif text-xl sm:text-2xl font-normal tracking-tight text-zinc-100 transition-all duration-300 ${
-                            isHovered ? "text-white translate-x-1" : "group-hover:text-white"
-                          }`}
-                        >
-                          {item.activity}
-                        </h3>
+                    <div className="lg:col-span-8 flex flex-col md:flex-row md:items-start justify-between gap-4">
+                      <div className="space-y-1.5 flex-1">
+                        <div className="flex flex-wrap items-baseline justify-between gap-2">
+                          <h3
+                            className={`font-serif text-xl sm:text-2xl font-normal tracking-tight text-zinc-100 transition-all duration-300 ${
+                              isHovered ? "text-white translate-x-1" : "group-hover:text-white"
+                            }`}
+                          >
+                            {item.activity}
+                          </h3>
 
-                        {item.highlight && (
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-xs bg-sky-400/10 border border-sky-400/20 type-meta text-[10px] text-sky-400">
-                            <Sparkles className="h-3 w-3" />
-                            <span>{item.highlight}</span>
-                          </span>
-                        )}
+                          {item.highlight && (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-xs bg-sky-400/10 border border-sky-400/20 type-meta text-[10px] text-sky-400">
+                              <Sparkles className="h-3 w-3" />
+                              <span>{item.highlight}</span>
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] max-w-2xl group-hover:text-zinc-300 transition-colors">
+                          {item.context}
+                        </p>
                       </div>
 
-                      <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] max-w-2xl group-hover:text-zinc-300 transition-colors">
-                        {item.context}
-                      </p>
+                      {/* Optional Real Photo Thumbnail on Hover */}
+                      {media.volunteering[item.mediaKey]?.isReal && (
+                        <div className={`shrink-0 transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}>
+                          <div className="relative w-20 h-14 rounded-xs overflow-hidden border border-white/20">
+                            <Image
+                              src={media.volunteering[item.mediaKey].src}
+                              alt={media.volunteering[item.mediaKey].alt}
+                              fill
+                              sizes="80px"
+                              className="object-cover"
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </motion.div>
