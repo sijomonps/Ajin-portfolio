@@ -139,55 +139,65 @@ export function YuvaManass() {
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.08]"
         >
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-sky-400 font-medium">
+            <span className="type-meta text-sky-400">
               05 / ADVOCACY
             </span>
             <span className="h-3 w-px bg-white/20" />
-            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-400">
+            <span className="type-meta text-zinc-400">
               YUVA MANASS CAMPAIGN
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-sans text-[10px] sm:text-[11px] text-zinc-500 uppercase tracking-wider font-medium">
+          <div className="flex items-center gap-2 type-meta text-zinc-500">
             <span>FOUNDER — AJIN SHIBU</span>
             <span className="text-white/20">•</span>
             <span>2026</span>
           </div>
         </motion.div>
 
+        {/* Section Heading */}
+        <div className="mt-8 mb-6 sm:mb-10">
+          <h2 className="font-editorial-heading text-3xl sm:text-5xl md:text-6xl text-zinc-100">
+            Yuva Manass<span className="text-sky-400">.</span>
+          </h2>
+          <p className="mt-2 text-sm sm:text-base font-serif italic text-zinc-400">
+            Youth Mental Health Advocacy &amp; Stigma Reduction.
+          </p>
+        </div>
+
         {/* ============================================================== */}
         {/* MAJOR VISUAL TYPOGRAPHY: ARE / YOU / OKAY?                     */}
         {/* Mobile Compact Rule #7: ARE YOU / OKAY? on small screens       */}
         {/* ============================================================== */}
-        <div className="my-10 sm:my-16 md:my-24 flex flex-col justify-center">
-          <div className="font-sans text-xs uppercase tracking-widest text-sky-400/90 mb-3 flex items-center gap-2 font-medium">
+        <div className="my-8 sm:my-14 md:my-20 flex flex-col justify-center">
+          <div className="type-meta text-sky-400/90 mb-3 flex items-center gap-2">
             <Heart className="h-3.5 w-3.5 text-sky-400" />
             <span>The Core Question</span>
           </div>
 
           {/* Mobile Layout (2 Lines: ARE YOU / OKAY?) */}
           <div className="sm:hidden space-y-1 select-none">
-            <div className="overflow-hidden leading-[0.88]">
+            <div className="overflow-hidden leading-[0.9]">
               <motion.div
                 variants={maskVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
-                className="text-[13.5vw] font-extralight uppercase tracking-[-0.04em] text-zinc-400"
+                className="font-serif text-[14vw] font-normal uppercase tracking-tight text-zinc-400"
               >
-                ARE YOU
+                ARE <span className="italic text-zinc-300">YOU</span>
               </motion.div>
             </div>
-            <div className="overflow-hidden leading-[0.88]">
+            <div className="overflow-hidden leading-[0.9]">
               <motion.div
                 variants={maskVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.15 }}
-                className="text-[13.5vw] font-extralight uppercase tracking-[-0.04em] text-zinc-100"
+                className="font-serif text-[14vw] font-normal uppercase tracking-tight text-zinc-100"
               >
-                OKAY<span className="text-sky-400 font-light">?</span>
+                OKAY<span className="text-sky-400 font-serif italic font-normal">?</span>
               </motion.div>
             </div>
           </div>
@@ -202,7 +212,7 @@ export function YuvaManass() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
-                className="text-[13vw] md:text-[11vw] lg:text-[10vw] font-extralight uppercase tracking-[-0.04em] text-zinc-500 hover:text-zinc-300 transition-colors duration-500"
+                className="font-serif text-[13vw] md:text-[11vw] lg:text-[10vw] font-normal uppercase tracking-tight text-zinc-500 hover:text-zinc-300 transition-colors duration-500"
               >
                 ARE
               </motion.div>
@@ -217,7 +227,7 @@ export function YuvaManass() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.15 }}
-                className="text-[13vw] md:text-[11vw] lg:text-[10vw] font-extralight uppercase tracking-[-0.04em] text-zinc-300 hover:text-white transition-colors duration-500"
+                className="font-serif italic text-[13vw] md:text-[11vw] lg:text-[10vw] font-normal uppercase tracking-tight text-zinc-300 hover:text-white transition-colors duration-500"
               >
                 YOU
               </motion.div>
@@ -232,9 +242,9 @@ export function YuvaManass() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.3 }}
-                className="text-[13vw] md:text-[11vw] lg:text-[10vw] font-extralight uppercase tracking-[-0.04em] text-zinc-100"
+                className="font-serif text-[13vw] md:text-[11vw] lg:text-[10vw] font-normal uppercase tracking-tight text-zinc-100"
               >
-                OKAY<span className="text-sky-400 font-light">?</span>
+                OKAY<span className="text-sky-400 font-serif italic font-normal">?</span>
               </motion.div>
             </div>
           </div>
@@ -248,24 +258,24 @@ export function YuvaManass() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-10%" }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-baseline pb-14 sm:pb-20 border-b border-white/[0.08]"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-baseline pb-12 sm:pb-16 border-b border-white/[0.08]"
         >
           {/* Left Column: Vision Manifesto with selective Instrument Serif accent */}
           <div className="lg:col-span-7 space-y-3">
-            <span className="font-sans text-xs uppercase tracking-widest text-sky-400 block font-medium">
+            <span className="type-meta text-sky-400 block">
               [ Core Vision ]
             </span>
-            <blockquote className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight text-zinc-100 leading-snug tracking-tight">
-              “A generation where asking <span className="font-serif italic font-normal text-sky-400">‘Are You Okay?’</span> becomes a normal expression of care.”
+            <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-zinc-100 leading-snug tracking-tight">
+              “A generation where asking <span className="italic text-sky-400">‘Are You Okay?’</span> becomes a normal expression of care.”
             </blockquote>
           </div>
 
           {/* Right Column: Grounded Editorial Story */}
-          <div className="lg:col-span-5 space-y-3 text-zinc-300 font-light text-base sm:text-lg leading-relaxed">
+          <div className="lg:col-span-5 space-y-3 text-zinc-300 font-light text-base sm:text-lg leading-[1.75] max-w-xl">
             <p>
               Founded by Ajin Shibu, YUVA Manass is a grassroots youth mental health awareness initiative created to open honest dialogue around emotional distress, normalize psychological help-seeking, and dismantle the isolation that so often accompanies psychological struggle.
             </p>
-            <p className="text-sm font-sans text-zinc-400">
+            <p className="text-sm font-sans text-zinc-400 leading-[1.7]">
               Integrating clinical psychiatric perspectives with youth engagement, the campaign creates accessible pathways between vulnerable young people and professional counseling support.
             </p>
           </div>
@@ -282,10 +292,10 @@ export function YuvaManass() {
           className="py-10 sm:py-14 border-b border-white/[0.08]"
         >
           <div className="flex items-center justify-between pb-4">
-            <span className="font-sans text-xs uppercase tracking-widest text-zinc-500 font-medium">
+            <span className="type-meta text-zinc-500">
               Flowing Thematic Focus
             </span>
-            <span className="font-sans text-[10px] text-sky-400 uppercase tracking-wider font-medium">
+            <span className="type-meta text-sky-400">
               7 INTEGRATED PILLARS
             </span>
           </div>
@@ -294,7 +304,7 @@ export function YuvaManass() {
           <div className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3">
             {campaignThemes.map((theme, i) => (
               <React.Fragment key={theme}>
-                <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extralight uppercase tracking-tight text-zinc-300 hover:text-sky-400 transition-colors duration-300 cursor-default">
+                <span className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight text-zinc-300 hover:text-sky-400 transition-colors duration-300 cursor-default">
                   {theme}
                 </span>
                 {i < campaignThemes.length - 1 && (
@@ -313,14 +323,14 @@ export function YuvaManass() {
         <div className="py-12 sm:py-16">
           <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-8">
             <div>
-              <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium block mb-1">
+              <span className="type-meta text-sky-400 block mb-1">
                 Campaign Mandate
               </span>
-              <h3 className="text-2xl sm:text-3xl font-light uppercase tracking-tight text-zinc-100">
-                Core Purpose &amp; Action
+              <h3 className="font-editorial-heading text-2xl sm:text-3xl text-zinc-100">
+                Core Purpose &amp; Action<span className="text-sky-400">.</span>
               </h3>
             </div>
-            <span className="hidden sm:inline-block font-sans text-xs text-zinc-500 uppercase tracking-wider font-medium">
+            <span className="hidden sm:inline-block type-meta text-zinc-500">
               [ Systematic Intervention ]
             </span>
           </div>
@@ -339,12 +349,12 @@ export function YuvaManass() {
                   <span className="font-sans text-xs text-sky-400 font-semibold tracking-wider">
                     {point.number}
                   </span>
-                  <h4 className="text-base sm:text-lg font-normal text-zinc-100 uppercase tracking-tight group-hover:text-white transition-colors">
+                  <h4 className="font-serif text-lg sm:text-xl font-normal text-zinc-100 tracking-tight group-hover:text-white transition-colors">
                     {point.title}
                   </h4>
                 </div>
 
-                <p className="pl-6 sm:pl-7 text-xs sm:text-sm font-light text-zinc-400 leading-relaxed">
+                <p className="pl-6 sm:pl-7 text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] max-w-xl">
                   {point.description}
                 </p>
               </motion.div>
@@ -363,19 +373,19 @@ export function YuvaManass() {
           className="pt-8 sm:pt-12 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-5"
         >
           <div className="space-y-1">
-            <div className="flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-sky-400 font-medium">
+            <div className="flex items-center gap-2 type-meta text-sky-400">
               <MessageCircle className="h-3.5 w-3.5" />
               <span>Social Outreach &amp; Campaign Presence</span>
             </div>
-            <p className="text-xs sm:text-sm font-light text-zinc-400">
+            <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7]">
               Follow campaign dialogues, workshop announcements, and mental health advocacy initiatives.
             </p>
           </div>
 
           {/* Social Presence Handle */}
           <div className="flex items-center gap-3">
-            <div className="py-2.5 px-4 rounded-sm bg-white/[0.03] border border-white/[0.1] hover:border-sky-400/50 transition-colors flex items-center gap-2.5 font-sans text-xs min-h-[44px]">
-              <span className="text-zinc-500 uppercase tracking-wider text-[10px] font-medium">HANDLE:</span>
+            <div className="py-2.5 px-4 rounded-sm bg-white/[0.03] border border-white/[0.1] hover:border-sky-400/50 transition-colors flex items-center gap-2.5 type-meta min-h-[44px]">
+              <span className="text-zinc-500 text-[10px]">HANDLE:</span>
               <span className="text-zinc-100 font-medium tracking-wide">
                 @yuvamanass_campaign
               </span>

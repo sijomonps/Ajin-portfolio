@@ -267,21 +267,24 @@ export function ArchiveCertifications() {
           <div className="pb-4 border-b border-white/[0.08] mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+                <span className="type-meta text-sky-400">
                   08 / CREDENTIALS
                 </span>
                 <span className="h-3 w-px bg-white/20" />
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400">
+                <span className="type-meta text-zinc-400">
                   ACCREDITATIONS &amp; CERTIFICATIONS
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extralight uppercase tracking-tight text-zinc-100">
-                Verified Credentials &amp; Practice Standing.
+              <h2 className="font-editorial-heading text-3xl sm:text-5xl text-zinc-100">
+                Credentials<span className="text-sky-400">.</span>
               </h2>
+              <p className="mt-2 text-sm sm:text-base font-serif italic text-zinc-400">
+                Verified Credentials &amp; Practice Standing.
+              </p>
             </div>
 
             {/* Category Filter Chips */}
-            <div className="flex flex-wrap items-center gap-2 font-sans text-[11px] tracking-wider uppercase">
+            <div className="flex flex-wrap items-center gap-2 type-meta">
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -338,10 +341,10 @@ export function ArchiveCertifications() {
                         {cert.code}
                       </span>
                       <div>
-                        <span className="font-sans text-xs text-sky-400 block uppercase tracking-wider font-medium">
+                        <span className="type-meta text-sky-400 block">
                           {cert.issuer}
                         </span>
-                        <span className="font-sans text-[10px] text-zinc-500 uppercase tracking-widest">
+                        <span className="type-meta text-zinc-500 text-[10px]">
                           {cert.category} CREDENTIAL
                         </span>
                       </div>
@@ -351,25 +354,25 @@ export function ArchiveCertifications() {
                     <div className="lg:col-span-8 flex flex-col md:flex-row md:items-baseline justify-between gap-2">
                       <div className="space-y-1">
                         <h3
-                          className={`text-lg sm:text-xl font-light text-zinc-100 transition-colors uppercase tracking-tight ${
+                          className={`font-serif text-xl sm:text-2xl font-normal text-zinc-100 transition-colors tracking-tight ${
                             isHovered ? "text-white" : ""
                           }`}
                         >
                           {cert.name}
                         </h3>
-                        <p className="text-xs sm:text-sm font-light text-zinc-400 leading-relaxed">
+                        <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] max-w-2xl">
                           {cert.scope}
                         </p>
                       </div>
 
                       <div className="shrink-0 pt-1 md:pt-0">
                         {cert.id === "kaps" ? (
-                          <span className="inline-flex items-center gap-1.5 font-sans text-[10px] text-sky-400 uppercase tracking-wider px-2 py-0.5 rounded-xs bg-sky-400/10 border border-sky-400/20 font-medium">
+                          <span className="inline-flex items-center gap-1.5 type-meta text-[10px] text-sky-400 px-2 py-0.5 rounded-xs bg-sky-400/10 border border-sky-400/20">
                             <Shield className="h-3 w-3" />
                             <span>Professional Member</span>
                           </span>
                         ) : (
-                          <span className="font-sans text-[10px] text-zinc-600 uppercase tracking-wider group-hover:text-zinc-400 transition-colors">
+                          <span className="type-meta text-[10px] text-zinc-600 group-hover:text-zinc-400 transition-colors">
                             VERIFIED DOSSIER
                           </span>
                         )}
@@ -390,20 +393,23 @@ export function ArchiveCertifications() {
           <div className="pb-4 border-b border-white/[0.08] mb-8 sm:mb-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+                <span className="type-meta text-sky-400">
                   09 / VISUAL ARCHIVE
                 </span>
                 <span className="h-3 w-px bg-white/20" />
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400">
+                <span className="type-meta text-zinc-400">
                   CURATED FOLIO SPECIMENS
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extralight uppercase tracking-tight text-zinc-100">
-                The Curated Visual Archive.
+              <h2 className="font-editorial-heading text-3xl sm:text-5xl text-zinc-100">
+                Visual Archive<span className="text-sky-400">.</span>
               </h2>
+              <p className="mt-2 text-sm sm:text-base font-serif italic text-zinc-400">
+                The Curated Visual Archive &amp; Field Records.
+              </p>
             </div>
 
-            <span className="font-sans text-xs text-zinc-500 uppercase tracking-wider">
+            <span className="type-meta text-zinc-500">
               [ Click item to expand lightbox ]
             </span>
           </div>
@@ -445,20 +451,20 @@ export function ArchiveCertifications() {
 
                       {/* Top Specimen Badge */}
                       <div className="absolute top-4 left-4 z-10">
-                        <span className="px-2.5 py-1 rounded-xs bg-black/70 backdrop-blur-md border border-white/10 font-sans text-[10px] uppercase tracking-widest text-sky-400 font-medium">
+                        <span className="px-2.5 py-1 rounded-xs bg-black/70 backdrop-blur-md border border-white/10 type-meta text-[10px] text-sky-400">
                           {item.tag}
                         </span>
                       </div>
 
                       {/* Bottom Info Overlay */}
                       <div className="absolute bottom-6 left-6 right-6 z-10 space-y-1.5">
-                        <span className="font-sans text-[10px] uppercase tracking-widest text-zinc-400 block font-medium">
+                        <span className="type-meta text-zinc-400 block">
                           {item.category}
                         </span>
-                        <h3 className="text-xl sm:text-2xl font-light text-white uppercase tracking-tight">
+                        <h3 className="font-serif text-2xl sm:text-3xl font-normal text-white tracking-tight">
                           {item.title}
                         </h3>
-                        <p className="text-xs font-sans text-zinc-400">
+                        <p className="text-xs sm:text-sm font-sans text-zinc-300 font-light">
                           {item.subtitle}
                         </p>
                       </div>
@@ -472,31 +478,31 @@ export function ArchiveCertifications() {
                     /* Supporting Archival Folio Plates (Authentic Typographic Specimens) */
                     <div className="p-5 sm:p-6 lg:p-7 flex flex-col justify-between h-full space-y-5">
                       <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
-                        <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium">
+                        <span className="type-meta text-sky-400">
                           FOLIO // {item.code}
                         </span>
-                        <span className="font-sans text-[9px] text-zinc-500 uppercase tracking-wider">
+                        <span className="type-meta text-zinc-500 text-[10px]">
                           {item.tag}
                         </span>
                       </div>
 
                       <div className="space-y-2">
-                        <span className="font-sans text-[10px] uppercase tracking-widest text-zinc-500 block font-medium">
+                        <span className="type-meta text-zinc-500 text-[10px] block">
                           {item.category}
                         </span>
-                        <h3 className="text-lg sm:text-xl font-light text-zinc-100 group-hover:text-white uppercase tracking-tight transition-colors">
+                        <h3 className="font-serif text-xl sm:text-2xl font-normal text-zinc-100 group-hover:text-white tracking-tight transition-colors">
                           {item.title}
                         </h3>
                         <p className="text-xs font-sans text-sky-400/90 font-medium">
                           {item.subtitle}
                         </p>
-                        <p className="text-xs font-light text-zinc-400 leading-relaxed pt-1 line-clamp-3">
+                        <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] pt-1 line-clamp-3">
                           {item.description}
                         </p>
                       </div>
 
                       <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-sans text-zinc-500">
-                        <span className="tracking-wider uppercase text-[11px]">EXPAND ARCHIVE RECORD</span>
+                        <span className="type-meta text-zinc-400 text-[10px]">EXPAND ARCHIVE RECORD</span>
                         <ArrowUpRight className="h-3.5 w-3.5 text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </div>
                     </div>
@@ -538,11 +544,11 @@ export function ArchiveCertifications() {
               {/* Top Controls: Index, Category & Close Button */}
               <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/[0.08]">
                 <div className="flex items-center gap-3">
-                  <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-semibold">
+                  <span className="type-meta text-sky-400 font-semibold">
                     SPECIMEN {activeLightboxItem.code} OF {String(galleryItems.length).padStart(2, "0")}
                   </span>
                   <span className="h-3 w-px bg-white/20" />
-                  <span className="font-sans text-xs uppercase tracking-widest text-zinc-400">
+                  <span className="type-meta text-zinc-400">
                     {activeLightboxItem.category}
                   </span>
                 </div>
@@ -592,22 +598,22 @@ export function ArchiveCertifications() {
                 ) : (
                   /* Archival Dossier Graphic */
                   <div className="md:col-span-6 relative aspect-[4/3] w-full rounded-sm bg-[#07080a] border border-white/[0.08] p-6 flex flex-col justify-between">
-                    <div className="flex items-center justify-between text-xs font-sans text-zinc-500 uppercase tracking-wider">
-                      <span className="text-sky-400 font-medium">ARCHIVAL SPECIMEN</span>
+                    <div className="flex items-center justify-between type-meta text-zinc-500">
+                      <span className="text-sky-400">ARCHIVAL SPECIMEN</span>
                       <span>VERIFIED CV ENTRY</span>
                     </div>
 
                     <div className="my-auto space-y-2">
                       <FileText className="h-8 w-8 text-sky-400/80 mb-2" />
-                      <p className="font-sans text-xs text-zinc-400 uppercase tracking-widest">
+                      <p className="type-meta text-zinc-400">
                         {activeLightboxItem.tag}
                       </p>
-                      <h4 className="text-lg font-light text-zinc-200 uppercase">
+                      <h4 className="font-serif text-xl sm:text-2xl font-normal text-zinc-200">
                         {activeLightboxItem.title}
                       </h4>
                     </div>
 
-                    <div className="text-[10px] font-sans text-zinc-500 tracking-wider border-t border-white/[0.06] pt-2 uppercase">
+                    <div className="type-meta text-[10px] text-zinc-500 border-t border-white/[0.06] pt-2">
                       OFFICIAL PORTFOLIO REPOSITORY • AJIN SHIBU
                     </div>
                   </div>
@@ -616,10 +622,10 @@ export function ArchiveCertifications() {
                 {/* Right / Text Narrative Colophon */}
                 <div className="md:col-span-6 space-y-4">
                   <div className="space-y-1">
-                    <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium">
+                    <span className="type-meta text-sky-400">
                       {activeLightboxItem.tag}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-light text-zinc-100 uppercase tracking-tight">
+                    <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-zinc-100 tracking-tight">
                       {activeLightboxItem.title}
                     </h3>
                     <p className="text-sm font-sans text-zinc-400">
@@ -627,16 +633,16 @@ export function ArchiveCertifications() {
                     </p>
                   </div>
 
-                  <p className="text-sm font-light text-zinc-300 leading-relaxed border-t border-white/[0.06] pt-4">
+                  <p className="text-sm sm:text-base font-sans font-light text-zinc-300 leading-[1.75] border-t border-white/[0.06] pt-4">
                     {activeLightboxItem.description}
                   </p>
 
-                  <div className="pt-2 flex items-center justify-between text-xs font-sans text-zinc-500">
+                  <div className="pt-2 flex items-center justify-between type-meta text-zinc-500">
                     <div>
                       <span className="sm:hidden text-sky-400">Swipe ← / → to browse</span>
                       <span className="hidden sm:inline">Keyboard: ← / → / ESC</span>
                     </div>
-                    <span className="text-sky-400 font-medium">KERALA, INDIA</span>
+                    <span className="text-sky-400">KERALA, INDIA</span>
                   </div>
                 </div>
               </div>

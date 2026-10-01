@@ -147,25 +147,27 @@ export function VolunteeringCapabilities() {
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-3">
-                <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-sky-400 font-medium">
+                <span className="type-meta text-sky-400">
                   07 / VOLUNTEERING
                 </span>
                 <span className="h-3 w-px bg-white/20" />
-                <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-400">
+                <span className="type-meta text-zinc-400">
                   CIVIC SERVICE &amp; COMMUNITY ACTION
                 </span>
               </div>
 
-              <span className="font-sans text-[10px] sm:text-[11px] uppercase tracking-wider text-zinc-500 font-medium">
+              <span className="type-meta text-zinc-500">
                 5 DOCUMENTED INITIATIVES
               </span>
             </div>
 
             <div className="mt-6 max-w-3xl">
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-extralight uppercase tracking-tight text-zinc-100">
-                Grassroots Civic Service &amp; <br />
-                <span className="text-zinc-500 font-extralight">Vulnerable Community Care.</span>
+              <h2 className="font-editorial-heading text-3xl sm:text-5xl md:text-6xl text-zinc-100">
+                Volunteering<span className="text-sky-400">.</span>
               </h2>
+              <p className="mt-2 text-sm sm:text-base font-serif italic text-zinc-400">
+                Grassroots Civic Service &amp; Vulnerable Community Care.
+              </p>
             </div>
           </motion.div>
 
@@ -214,7 +216,7 @@ export function VolunteeringCapabilities() {
                           {item.number}
                         </span>
                         <span className="h-2.5 w-px bg-white/20" />
-                        <span className="font-sans text-xs uppercase tracking-wider text-sky-400 font-medium">
+                        <span className="type-meta text-sky-400">
                           {item.organization}
                         </span>
                       </div>
@@ -235,7 +237,7 @@ export function VolunteeringCapabilities() {
                     <div className="lg:col-span-8 space-y-1.5">
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
                         <h3
-                          className={`text-lg sm:text-xl font-light tracking-tight uppercase text-zinc-100 transition-all duration-300 ${
+                          className={`font-serif text-xl sm:text-2xl font-normal tracking-tight text-zinc-100 transition-all duration-300 ${
                             isHovered ? "text-white translate-x-1" : "group-hover:text-white"
                           }`}
                         >
@@ -243,14 +245,14 @@ export function VolunteeringCapabilities() {
                         </h3>
 
                         {item.highlight && (
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-xs bg-sky-400/10 border border-sky-400/20 font-sans text-[10px] text-sky-400 uppercase tracking-wider font-medium">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-xs bg-sky-400/10 border border-sky-400/20 type-meta text-[10px] text-sky-400">
                             <Sparkles className="h-3 w-3" />
                             <span>{item.highlight}</span>
                           </span>
                         )}
                       </div>
 
-                      <p className="text-xs sm:text-sm font-light text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
+                      <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] max-w-2xl group-hover:text-zinc-300 transition-colors">
                         {item.context}
                       </p>
                     </div>
@@ -268,15 +270,15 @@ export function VolunteeringCapabilities() {
           {/* Section Sub-Header */}
           <div className="pb-3 border-b border-white/[0.08] mb-8 sm:mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
-              <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium block mb-1">
+              <span className="type-meta text-sky-400 block mb-1">
                 Capability Matrix
               </span>
-              <h3 className="text-2xl sm:text-4xl font-extralight uppercase tracking-tight text-zinc-100">
-                Skills &amp; Practice Repertoire
+              <h3 className="font-editorial-heading text-2xl sm:text-4xl text-zinc-100">
+                Skills &amp; Practice Repertoire<span className="text-sky-400">.</span>
               </h3>
             </div>
-            <span className="font-sans text-[10px] sm:text-xs text-zinc-500 uppercase tracking-wider font-medium">
-              [ No Progress Bars • Continuous Mastery ]
+            <span className="type-meta text-zinc-500">
+              [ Continuous Mastery ]
             </span>
           </div>
 
@@ -284,18 +286,18 @@ export function VolunteeringCapabilities() {
             {/* Cluster 1: Professional Skills (Col 1-6) */}
             <div className="lg:col-span-6 space-y-4">
               <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
-                <div className="flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-zinc-300 font-medium">
+                <div className="flex items-center gap-2 type-meta text-zinc-300">
                   <HeartHandshake className="h-4 w-4 text-sky-400" />
                   <span>Professional &amp; Social Practice</span>
                 </div>
-                <span className="font-sans text-[10px] text-zinc-500 uppercase font-medium">7 DISCIPLINES</span>
+                <span className="type-meta text-zinc-500 text-[10px]">7 DISCIPLINES</span>
               </div>
 
               {/* Flowing Typography System (No Badges/Pills/Bars) */}
               <div className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-5 gap-y-2 sm:gap-y-3">
                 {professionalSkills.map((skill, index) => (
                   <React.Fragment key={skill}>
-                    <span className="text-lg sm:text-2xl md:text-3xl font-extralight text-zinc-300 hover:text-sky-400 transition-colors duration-300 cursor-default uppercase tracking-tight">
+                    <span className="font-serif text-xl sm:text-2xl md:text-3xl font-normal text-zinc-300 hover:text-sky-400 transition-colors duration-300 cursor-default">
                       {skill}
                     </span>
                     {index < professionalSkills.length - 1 && (
@@ -307,7 +309,7 @@ export function VolunteeringCapabilities() {
                 ))}
               </div>
 
-              <p className="text-xs font-sans text-zinc-400 leading-relaxed pt-1">
+              <p className="text-xs font-sans text-zinc-400 leading-[1.7] max-w-xl pt-1">
                 Groundwork honed through psychiatric hospital intakes, community needs assessments, multidisciplinary rounds, and student dialogic facilitation.
               </p>
             </div>
@@ -315,18 +317,18 @@ export function VolunteeringCapabilities() {
             {/* Cluster 2: Creative & Technical Skills (Col 7-12) */}
             <div className="lg:col-span-6 space-y-4">
               <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.06]">
-                <div className="flex items-center gap-2 font-sans text-xs uppercase tracking-widest text-zinc-300 font-medium">
+                <div className="flex items-center gap-2 type-meta text-zinc-300">
                   <Sparkles className="h-4 w-4 text-sky-400" />
                   <span>Creative &amp; Technical Capabilities</span>
                 </div>
-                <span className="font-sans text-[10px] text-zinc-500 uppercase font-medium">7 DISCIPLINES</span>
+                <span className="type-meta text-zinc-500 text-[10px]">7 DISCIPLINES</span>
               </div>
 
               {/* Flowing Typography System (No Badges/Pills/Bars) */}
               <div className="flex flex-wrap items-baseline gap-x-4 sm:gap-x-5 gap-y-2 sm:gap-y-3">
                 {creativeTechnicalSkills.map((skill, index) => (
                   <React.Fragment key={skill}>
-                    <span className="text-lg sm:text-2xl md:text-3xl font-extralight text-zinc-300 hover:text-white transition-colors duration-300 cursor-default uppercase tracking-tight">
+                    <span className="font-serif text-xl sm:text-2xl md:text-3xl font-normal text-zinc-300 hover:text-white transition-colors duration-300 cursor-default">
                       {skill}
                     </span>
                     {index < creativeTechnicalSkills.length - 1 && (
@@ -338,7 +340,7 @@ export function VolunteeringCapabilities() {
                 ))}
               </div>
 
-              <p className="text-xs font-sans text-zinc-400 leading-relaxed pt-1">
+              <p className="text-xs font-sans text-zinc-400 leading-[1.7] max-w-xl pt-1">
                 Applied across AMDG Media creative direction, digital documentation systems (EcoScan), executive slide decks, and campaign branding assets.
               </p>
             </div>
@@ -350,7 +352,7 @@ export function VolunteeringCapabilities() {
           <div className="pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-sans text-xs text-zinc-500">
             <div className="flex items-center gap-2">
               <Languages className="h-3.5 w-3.5 text-zinc-400" />
-              <span className="uppercase tracking-widest text-zinc-400 font-medium text-[11px]">Language Proficiencies:</span>
+              <span className="type-meta text-zinc-400 text-[11px]">Language Proficiencies:</span>
             </div>
 
             <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2">

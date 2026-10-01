@@ -56,10 +56,10 @@ export function Navbar() {
             className="group flex items-baseline gap-2.5 focus:outline-none"
             aria-label="Ajin Shibu Home"
           >
-            <span className="font-sans font-light text-base sm:text-lg tracking-tight text-zinc-100 group-hover:text-white transition-colors uppercase">
-              AJIN SHIBU
+            <span className="font-serif font-normal text-lg sm:text-xl tracking-tight text-zinc-100 group-hover:text-white transition-colors">
+              AJIN <span className="italic text-zinc-300">SHIBU</span>
             </span>
-            <span className="hidden sm:inline-block font-sans text-[10px] tracking-widest text-zinc-500 uppercase font-medium">
+            <span className="hidden sm:inline-block font-sans text-[10px] tracking-[0.2em] text-zinc-500 uppercase font-medium">
               / KERALA
             </span>
           </Link>
@@ -70,7 +70,7 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="group relative font-sans text-[11px] uppercase tracking-widest text-zinc-400 hover:text-zinc-100 font-medium transition-colors py-1"
+                className="group relative font-sans text-[11px] uppercase tracking-[0.2em] text-zinc-400 hover:text-zinc-100 font-medium transition-colors py-1"
               >
                 <span>{item.label}</span>
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-sky-400 group-hover:w-full transition-all duration-300 ease-out" />
@@ -109,10 +109,10 @@ export function Navbar() {
           >
             <div className="space-y-6">
               <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-                <span className="font-sans text-xs uppercase tracking-widest text-zinc-500 font-medium">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-zinc-500 font-medium">
                   Navigation Menu
                 </span>
-                <span className="font-sans text-[11px] uppercase tracking-wider text-sky-400 font-medium">
+                <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-sky-400 font-medium">
                   KERALA, IN
                 </span>
               </div>
@@ -128,10 +128,10 @@ export function Navbar() {
                     <a
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="group flex items-center justify-between border-b border-white/[0.06] py-3.5 text-2xl sm:text-3xl font-extralight text-zinc-200 hover:text-sky-400 transition-colors uppercase tracking-tight min-h-[48px]"
+                      className="group flex items-center justify-between border-b border-white/[0.06] py-3.5 text-3xl sm:text-4xl font-serif font-normal text-zinc-200 hover:text-sky-400 transition-colors tracking-tight min-h-[48px]"
                     >
                       <span>{item.label}</span>
-                      <span className="font-sans text-xs font-medium text-zinc-500 group-hover:text-sky-400 tracking-wider">
+                      <span className="font-sans text-xs font-medium text-zinc-500 group-hover:text-sky-400 tracking-[0.2em]">
                         0{idx + 1}
                       </span>
                     </a>

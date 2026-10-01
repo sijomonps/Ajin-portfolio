@@ -247,17 +247,17 @@ export function Journey() {
             <div className="relative z-10 w-full max-w-7xl mx-auto space-y-3">
               <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
                 <div className="flex items-center gap-3">
-                  <span className="font-sans text-[11px] uppercase tracking-widest text-sky-400 font-medium">
+                  <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-sky-400 font-medium">
                     02 / THE JOURNEY
                   </span>
                   <span className="h-3 w-px bg-white/20" />
-                  <span className="font-sans text-[11px] uppercase tracking-widest text-zinc-400">
+                  <span className="font-serif italic font-normal text-lg sm:text-xl text-zinc-200">
                     A Continuum of Formation &amp; Impact
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3 font-sans text-xs">
-                  <span className="text-zinc-500 uppercase tracking-wider text-[11px]">MILESTONE</span>
+                  <span className="text-zinc-500 uppercase tracking-[0.16em] text-[11px]">MILESTONE</span>
                   <span className="text-sky-400 font-semibold tracking-wider">
                     {String(activeIndex + 1).padStart(2, "0")} / {String(milestones.length).padStart(2, "0")}
                   </span>
@@ -292,7 +292,7 @@ export function Journey() {
                       {/* Atmospheric Giant Year Typography */}
                       <div className="relative mb-2 select-none overflow-visible">
                         <span
-                          className={`font-sans text-5xl lg:text-7xl xl:text-8xl font-extralight tracking-tight transition-all duration-500 block ${
+                          className={`font-serif font-normal text-6xl lg:text-8xl xl:text-9xl tracking-tight transition-all duration-500 block ${
                             isActive
                               ? "text-white scale-105 translate-x-2 drop-shadow-[0_0_24px_rgba(56,189,248,0.25)]"
                               : isPast
@@ -305,7 +305,7 @@ export function Journey() {
 
                         {/* Top Micro-Tag */}
                         <div className="mt-1 flex items-center gap-2">
-                          <span className="font-sans text-[10px] uppercase tracking-widest text-sky-400 font-medium">
+                          <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-sky-400 font-medium">
                             {item.periodLabel}
                           </span>
                         </div>
@@ -352,7 +352,7 @@ export function Journey() {
 
                         {/* Title & Organization */}
                         <div className="mt-3.5 space-y-0.5">
-                          <h4 className="text-lg lg:text-xl font-normal text-zinc-100 uppercase tracking-tight">
+                          <h4 className="text-xl lg:text-2xl font-serif font-normal text-zinc-100 uppercase tracking-tight">
                             {item.title}
                           </h4>
                           <p className="text-xs font-sans text-sky-400 font-medium tracking-wide">
@@ -361,7 +361,7 @@ export function Journey() {
                         </div>
 
                         {/* Short Editorial Context Description */}
-                        <p className="mt-3 text-xs sm:text-sm font-light text-zinc-300 leading-relaxed">
+                        <p className="mt-3 text-xs sm:text-sm font-sans font-light text-zinc-300 leading-[1.7]">
                           {item.description}
                         </p>
                       </div>
@@ -382,7 +382,7 @@ export function Journey() {
                 <span>{milestones[activeIndex].organization}</span>
               </div>
 
-              <div className="hidden lg:flex items-center gap-2 text-zinc-500 uppercase tracking-widest text-[10px]">
+              <div className="hidden lg:flex items-center gap-2 text-zinc-500 uppercase tracking-[0.2em] text-[10px] font-medium">
                 <span>Scroll vertically to advance horizontally</span>
                 <ArrowUpRight className="h-3 w-3 text-sky-400" />
               </div>
@@ -399,16 +399,16 @@ export function Journey() {
           {/* Section Header */}
           <div className="pb-3 border-b border-white/[0.08] mb-8">
             <div className="flex items-center gap-3 mb-1.5">
-              <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium">
+              <span className="font-sans text-xs uppercase tracking-[0.2em] text-sky-400 font-medium">
                 02 / THE JOURNEY
               </span>
               <span className="h-3 w-px bg-white/20" />
-              <span className="font-sans text-xs uppercase tracking-widest text-zinc-400">
+              <span className="font-sans text-xs uppercase tracking-[0.16em] text-zinc-400">
                 2019 — 2026 ONWARD
               </span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-light uppercase tracking-tight text-zinc-100">
-              Chronological Path &amp; Formation
+            <h3 className="text-3xl sm:text-4xl font-serif font-normal tracking-tight text-zinc-100">
+              The Journey. <span className="font-serif italic text-zinc-400">Formation &amp; Path.</span>
             </h3>
           </div>
 
@@ -424,16 +424,16 @@ export function Journey() {
                 {/* Compact Milestone Card */}
                 <div className="bg-[#0e1014] border border-white/[0.08] p-4 sm:p-5 rounded-sm space-y-2.5">
                   <div className="flex items-baseline justify-between gap-2 pb-2 border-b border-white/[0.06]">
-                    <span className="font-sans text-lg sm:text-xl font-light text-white tracking-tight">
+                    <span className="font-serif text-2xl font-normal text-white tracking-tight">
                       {item.year}
                     </span>
-                    <span className="font-sans text-[10px] uppercase tracking-wider text-sky-400 font-medium">
+                    <span className="font-sans text-[10px] uppercase tracking-[0.16em] text-sky-400 font-medium">
                       {item.periodLabel}
                     </span>
                   </div>
 
                   <div>
-                    <h4 className="text-sm sm:text-base font-medium text-zinc-100 uppercase tracking-tight">
+                    <h4 className="text-lg font-serif font-normal text-zinc-100 uppercase tracking-tight">
                       {item.title}
                     </h4>
                     <p className="text-xs font-sans text-sky-400/90 font-medium mt-0.5">
@@ -441,7 +441,7 @@ export function Journey() {
                     </p>
                   </div>
 
-                  <p className="text-xs sm:text-sm font-light text-zinc-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm font-sans font-light text-zinc-300 leading-[1.7]">
                     {item.description}
                   </p>
 

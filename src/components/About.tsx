@@ -193,16 +193,16 @@ export function About() {
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.08]"
         >
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-sky-400 font-medium">
+            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.2em] text-sky-400 font-medium">
               01 / ABOUT
             </span>
             <span className="h-3 w-px bg-white/20" />
-            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-400">
-              PHILOSOPHY &amp; FORMATION
+            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.2em] text-zinc-400">
+              PHILOSOPHY &amp; PERSPECTIVE
             </span>
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 font-sans text-[10px] sm:text-xs uppercase tracking-wider text-zinc-500">
+          <div className="hidden sm:flex items-center gap-2 font-sans text-[10px] sm:text-xs uppercase tracking-[0.16em] text-zinc-500 font-medium">
             <span>KERALA, INDIA</span>
             <span className="text-white/20">•</span>
             <span>2022 — 2027</span>
@@ -214,11 +214,15 @@ export function About() {
           style={{ y: statementY }}
           className="mt-8 sm:mt-12 md:mt-16 max-w-5xl"
         >
-          <span className="block font-sans text-xs uppercase tracking-widest text-sky-400/90 mb-3 font-medium">
-            [ Core Perspective ]
-          </span>
+          <div className="mb-3 flex items-center gap-2">
+            <span className="font-serif italic font-normal text-2xl sm:text-3xl text-zinc-100">About.</span>
+            <span className="text-white/20">•</span>
+            <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-sky-400 font-medium">
+              Core Perspective
+            </span>
+          </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tight text-zinc-100 leading-[1.08]">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-normal tracking-tight text-zinc-100 leading-[1.08]">
             <span className="block overflow-hidden pb-1">
               <motion.span
                 variants={statementLineVariants}
@@ -239,7 +243,7 @@ export function About() {
                 transition={{ delay: 0.1 }}
                 className="block text-zinc-200"
               >
-                intersection of <span className="font-serif italic font-normal text-sky-400">people</span>,
+                intersection of <span className="font-serif italic text-sky-400">people</span>,
               </motion.span>
             </span>
             <span className="block overflow-hidden pb-1">
@@ -251,7 +255,7 @@ export function About() {
                 transition={{ delay: 0.2 }}
                 className="block text-zinc-400"
               >
-                ideas and <span className="text-zinc-100 font-light">impact.</span>
+                ideas and <span className="font-serif italic text-zinc-100">impact.</span>
               </motion.span>
             </span>
           </h2>
@@ -274,16 +278,16 @@ export function About() {
               <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                 <div className="flex items-center gap-2">
                   <Compass className="h-3.5 w-3.5 text-sky-400" />
-                  <span className="font-sans text-xs uppercase tracking-widest text-zinc-300 font-medium">
+                  <span className="font-sans text-xs uppercase tracking-[0.16em] text-zinc-300 font-medium">
                     Scholarly &amp; Civic Footing
                   </span>
                 </div>
-                <span className="font-sans text-[10px] text-zinc-500 uppercase tracking-wider">STANDARDS</span>
+                <span className="font-sans text-[10px] text-zinc-500 uppercase tracking-wider font-medium">STANDARDS</span>
               </div>
 
               {/* Education Anchor 1: MSW */}
               <div className="space-y-0.5">
-                <span className="font-sans text-[10px] text-sky-400 uppercase tracking-widest font-medium">
+                <span className="font-sans text-[10px] text-sky-400 uppercase tracking-[0.16em] font-medium">
                   Master of Social Work (MSW) • 2025–2027
                 </span>
                 <p className="text-sm font-normal text-zinc-200">
@@ -296,7 +300,7 @@ export function About() {
 
               {/* Education Anchor 2: BSW */}
               <div className="pt-3 border-t border-white/[0.06] space-y-0.5">
-                <span className="font-sans text-[10px] text-zinc-500 uppercase tracking-widest font-medium">
+                <span className="font-sans text-[10px] text-zinc-500 uppercase tracking-[0.16em] font-medium">
                   Bachelor of Social Work (BSW) • 2022–2025
                 </span>
                 <p className="text-sm font-normal text-zinc-200">
@@ -318,8 +322,8 @@ export function About() {
             </div>
 
             {/* Editorial Sub-quote */}
-            <p className="font-sans text-xs text-zinc-500 uppercase tracking-wider leading-relaxed px-1">
-              + Clinical empathy meets disciplined systems architecture.
+            <p className="font-serif italic text-sm text-zinc-400 leading-relaxed px-1">
+              “Clinical empathy meets disciplined systems architecture.”
             </p>
           </motion.div>
 
@@ -329,7 +333,7 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
-            className="lg:col-span-7 space-y-6 text-zinc-300 font-light text-base sm:text-lg leading-relaxed"
+            className="lg:col-span-7 space-y-6 text-zinc-300 font-sans font-light text-base sm:text-lg leading-[1.75] max-w-2xl"
           >
             {/* Paragraph 1 */}
             <motion.p variants={paragraphVariants}>
@@ -353,11 +357,11 @@ export function About() {
           <div id="pillars" className="scroll-mt-24" />
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8 md:mb-12">
             <div>
-              <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium block mb-1.5">
+              <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-sky-400 font-medium block mb-1.5">
                 02 / PROFESSIONAL IDENTITY
               </span>
-              <h3 className="text-2xl sm:text-3xl font-light uppercase tracking-tight text-zinc-100">
-                Four Pillars. One Integrated Architecture.
+              <h3 className="text-2xl sm:text-4xl font-serif font-normal tracking-tight text-zinc-100">
+                Four Pillars. <span className="font-serif italic text-zinc-400">One Architecture.</span>
               </h3>
             </div>
             <span className="font-sans text-[11px] text-zinc-500 uppercase tracking-wider font-medium">
@@ -408,7 +412,7 @@ export function About() {
                       {/* Left: Number + Massive Typography */}
                       <div className="flex items-baseline gap-3 sm:gap-6 lg:gap-8 min-w-0">
                         <span
-                          className={`font-sans text-xs sm:text-sm tracking-widest font-medium transition-colors duration-300 ${
+                          className={`font-sans text-xs sm:text-sm tracking-[0.2em] font-medium transition-colors duration-300 ${
                             isHovered ? "text-sky-400" : "text-zinc-600"
                           }`}
                         >
@@ -416,7 +420,7 @@ export function About() {
                         </span>
 
                         <h4
-                          className={`text-2xl min-[380px]:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extralight tracking-tight uppercase transition-all duration-500 select-none ${
+                          className={`text-2xl min-[380px]:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-normal tracking-tight uppercase transition-all duration-500 select-none ${
                             isHovered
                               ? "text-white translate-x-1 sm:translate-x-3 scale-[1.01]"
                               : isOtherHovered

@@ -145,24 +145,27 @@ export function Projects() {
         <div className="pb-3 border-b border-white/[0.08] mb-10 md:mb-16">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-sky-400 font-medium">
-                04 / INITIATIVES
+              <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.2em] text-sky-400 font-medium">
+                04 / SELECTED WORK
               </span>
               <span className="h-3 w-px bg-white/20" />
-              <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-400">
-                COMMUNITY &amp; DESIGN CASE STUDIES
+              <span className="font-sans text-[11px] sm:text-xs uppercase tracking-[0.2em] text-zinc-400">
+                INITIATIVES &amp; CASE STUDIES
               </span>
             </div>
 
-            <span className="hidden sm:inline-block font-sans text-[11px] uppercase tracking-wider text-zinc-500 font-medium">
+            <span className="hidden sm:inline-block font-sans text-[11px] uppercase tracking-[0.16em] text-zinc-500 font-medium">
               2 INITIATIVES • 2023 — 2024
             </span>
           </div>
 
           <div className="mt-6 max-w-3xl">
-            <h2 className="text-3xl sm:text-5xl md:text-6xl font-extralight uppercase tracking-tight text-zinc-100">
+            <div className="mb-2">
+              <span className="font-serif italic font-normal text-2xl sm:text-3xl text-zinc-100">Selected Work.</span>
+            </div>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif font-normal tracking-tight text-zinc-100">
               Structured Interventions. <br />
-              <span className="text-zinc-500 font-extralight">Measured Outcomes.</span>
+              <span className="font-serif italic text-zinc-400">Measured Outcomes.</span>
             </h2>
           </div>
         </div>
@@ -192,11 +195,11 @@ export function Projects() {
             {/* Swiss Coordinate Header */}
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/[0.06]">
               <div className="flex items-center gap-3">
-                <span className="font-sans text-xs text-sky-400 font-semibold tracking-widest">
+                <span className="font-sans text-xs text-sky-400 font-semibold tracking-[0.2em]">
                   CASE STUDY / {aksharanila.number}
                 </span>
                 <span className="h-3 w-px bg-white/20" />
-                <span className="font-sans text-xs uppercase tracking-widest text-zinc-400 font-medium">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-zinc-400 font-medium">
                   {aksharanila.period}
                 </span>
               </div>
@@ -213,13 +216,13 @@ export function Projects() {
               {/* Left Column: Huge Title, Role & Narrative (Col 1-6) */}
               <div className="lg:col-span-6 space-y-4 sm:space-y-5">
                 <div>
-                  <div className="flex items-center gap-2 mb-1.5 font-sans text-xs uppercase tracking-widest text-sky-400 font-medium">
+                  <div className="flex items-center gap-2 mb-1.5 font-serif italic text-sm sm:text-base text-sky-400">
                     <BookOpen className="h-3.5 w-3.5" />
                     <span>Education Through Empowerment</span>
                   </div>
 
                   <h3
-                    className="text-3xl min-[380px]:text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight uppercase text-zinc-100 transition-transform duration-500 group-hover:translate-x-2"
+                    className="text-4xl min-[380px]:text-5xl sm:text-6xl md:text-7xl font-serif font-normal tracking-tight uppercase text-zinc-100 transition-transform duration-500 group-hover:translate-x-2"
                   >
                     {aksharanila.title}
                   </h3>
@@ -238,14 +241,14 @@ export function Projects() {
                 </div>
 
                 {/* Primary Description */}
-                <p className="text-base sm:text-lg font-light text-zinc-300 leading-relaxed">
+                <p className="text-base sm:text-lg font-sans font-light text-zinc-300 leading-[1.75] max-w-xl">
                   {aksharanila.focus}
                 </p>
 
                 {/* Highlights */}
                 <div className="space-y-2 pt-2 border-t border-white/[0.06]">
                   {aksharanila.points.map((pt, i) => (
-                    <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm font-light text-zinc-400">
+                    <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm font-sans font-light text-zinc-400">
                       <span className="text-sky-400 font-bold shrink-0 mt-0.5">•</span>
                       <span>{pt}</span>
                     </div>
@@ -257,7 +260,7 @@ export function Projects() {
                   {aksharanila.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-xs bg-white/[0.04] border border-white/[0.08] font-sans text-[10px] uppercase tracking-wider text-zinc-300"
+                      className="px-2.5 py-1 rounded-xs bg-white/[0.04] border border-white/[0.08] font-sans text-[10px] uppercase tracking-[0.16em] text-zinc-300"
                     >
                       {tag}
                     </span>
@@ -276,7 +279,7 @@ export function Projects() {
                   className="relative min-h-[220px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090a0d] p-4 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-sky-400/40"
                 >
                   {/* Watermark Typographic Architecture */}
-                  <div className="pointer-events-none absolute -bottom-6 -right-6 select-none opacity-5 font-sans text-8xl font-black uppercase tracking-tighter text-white">
+                  <div className="pointer-events-none absolute -bottom-6 -right-6 select-none opacity-5 font-serif text-8xl font-normal uppercase tracking-tighter text-white">
                     AKSHARA
                   </div>
 
@@ -292,7 +295,7 @@ export function Projects() {
                       <span className="font-sans text-[9px] uppercase tracking-widest text-zinc-500 font-medium">
                         PRIMARY OBJECTIVE
                       </span>
-                      <p className="text-base sm:text-lg font-light text-zinc-100 uppercase tracking-tight">
+                      <p className="text-lg sm:text-xl font-serif font-normal text-zinc-100 uppercase tracking-tight">
                         Educational Empowerment &amp; Social Continuity
                       </p>
                     </div>
@@ -350,11 +353,11 @@ export function Projects() {
             {/* Swiss Coordinate Header */}
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/[0.06]">
               <div className="flex items-center gap-3">
-                <span className="font-sans text-xs text-teal-400 font-semibold tracking-widest">
+                <span className="font-sans text-xs text-teal-400 font-semibold tracking-[0.2em]">
                   CASE STUDY / {ecoscan.number}
                 </span>
                 <span className="h-3 w-px bg-white/20" />
-                <span className="font-sans text-xs uppercase tracking-widest text-zinc-400 font-medium">
+                <span className="font-sans text-xs uppercase tracking-[0.2em] text-zinc-400 font-medium">
                   {ecoscan.period}
                 </span>
               </div>
@@ -379,7 +382,7 @@ export function Projects() {
                   className="relative min-h-[220px] aspect-auto sm:aspect-[4/3] w-full rounded-sm border border-white/[0.1] bg-[#090b0a] p-4 sm:p-7 flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-700 group-hover:scale-[1.02] group-hover:border-teal-400/40"
                 >
                   {/* Watermark Typographic Architecture */}
-                  <div className="pointer-events-none absolute -bottom-6 -left-6 select-none opacity-5 font-sans text-8xl font-black uppercase tracking-tighter text-white">
+                  <div className="pointer-events-none absolute -bottom-6 -left-6 select-none opacity-5 font-serif text-8xl font-normal uppercase tracking-tighter text-white">
                     ECOSCAN
                   </div>
 
@@ -395,7 +398,7 @@ export function Projects() {
                       <span className="font-sans text-[9px] uppercase tracking-widest text-zinc-500 font-medium">
                         TAXONOMIC INTEGRATION
                       </span>
-                      <p className="text-base sm:text-lg font-light text-zinc-100 uppercase tracking-tight">
+                      <p className="text-lg sm:text-xl font-serif font-normal text-zinc-100 uppercase tracking-tight">
                         Flora Identification &amp; Digital Educational Design
                       </p>
                     </div>
@@ -428,13 +431,13 @@ export function Projects() {
               {/* Right Column: Huge Title, Role & Narrative (Col 7-12) */}
               <div className="order-1 lg:order-2 lg:col-span-6 space-y-4 sm:space-y-5">
                 <div>
-                  <div className="flex items-center gap-2 mb-1.5 font-sans text-xs uppercase tracking-widest text-teal-400 font-medium">
+                  <div className="flex items-center gap-2 mb-1.5 font-serif italic text-sm sm:text-base text-teal-400">
                     <Trees className="h-3.5 w-3.5" />
                     <span>Documenting College Biodiversity</span>
                   </div>
 
                   <h3
-                    className="text-3xl min-[380px]:text-4xl sm:text-6xl md:text-7xl font-extralight tracking-tight uppercase text-zinc-100 transition-transform duration-500 group-hover:translate-x-2"
+                    className="text-4xl min-[380px]:text-5xl sm:text-6xl md:text-7xl font-serif font-normal tracking-tight uppercase text-zinc-100 transition-transform duration-500 group-hover:translate-x-2"
                   >
                     {ecoscan.title}
                   </h3>

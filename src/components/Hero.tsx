@@ -123,16 +123,16 @@ export function Hero() {
         />
 
         {/* Swiss Architectural Registration Marks */}
-        <div className="absolute top-24 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-widest text-white/10 uppercase">
+        <div className="absolute top-24 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
           + 09°55&apos;N
         </div>
-        <div className="absolute top-24 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-widest text-white/10 uppercase">
+        <div className="absolute top-24 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
           + 76°58&apos;E
         </div>
-        <div className="absolute bottom-10 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-widest text-white/10 uppercase">
+        <div className="absolute bottom-10 left-6 sm:left-8 lg:left-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
           + 2026.01
         </div>
-        <div className="absolute bottom-10 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-widest text-white/10 uppercase">
+        <div className="absolute bottom-10 right-6 sm:right-8 lg:right-12 font-sans text-[10px] tracking-[0.2em] text-white/10 uppercase">
           + MONOGRAPH
         </div>
       </motion.div>
@@ -145,16 +145,16 @@ export function Hero() {
         className="relative z-10 w-full max-w-7xl mx-auto flex items-center justify-between border-b border-white/[0.06] pb-3"
       >
         <div className="flex items-center gap-3">
-          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-widest text-sky-400 font-medium">
+          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] text-sky-400 font-medium">
             KERALA, INDIA
           </span>
           <span className="h-2.5 w-px bg-white/20" />
-          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-widest text-zinc-400">
+          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.2em] text-zinc-400">
             09°55&apos;N 76°58&apos;E
           </span>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 font-sans text-[10px] sm:text-xs uppercase tracking-wider text-zinc-400">
+        <div className="hidden sm:flex items-center gap-2 font-sans text-[10px] sm:text-xs uppercase tracking-[0.16em] text-zinc-400">
           <span className="text-zinc-500">STANDING:</span>
           <span className="text-zinc-300">MSW SCHOLAR</span>
           <span className="text-white/20">•</span>
@@ -171,22 +171,23 @@ export function Hero() {
         }}
         className="relative z-10 w-full max-w-7xl mx-auto my-auto py-4 sm:py-6 flex flex-col justify-center"
       >
-        {/* Step 3: AJIN SHIBU (Mask Reveal) */}
+        {/* Step 3: AJIN SHIBU (Mask Reveal with subtle editorial contrast) */}
         <div className="overflow-hidden leading-none mb-4 sm:mb-6">
           <motion.h1
             variants={titleMaskVariants}
             initial="hidden"
             animate="visible"
-            className="text-[12vw] sm:text-[11vw] md:text-[9.5vw] lg:text-[8.5vw] xl:text-[8vw] font-extralight uppercase tracking-[-0.04em] text-zinc-100 select-none block"
+            className="text-[13vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-serif font-normal tracking-[-0.03em] text-zinc-100 select-none block"
             style={{ willChange: "transform" }}
           >
-            AJIN SHIBU
+            <span>AJIN</span>{" "}
+            <span className="font-serif italic font-normal text-zinc-300">SHIBU</span>
           </motion.h1>
         </div>
 
         {/* Step 4: 4-Line / Paired Positioning Statements with Subtle Asymmetric Portrait */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          {/* Left Column: The 4 Positioning Statements */}
+          {/* Left Column: The 4 Positioning Statements in expressive typography */}
           <motion.div
             variants={positioningContainerVariants}
             initial="hidden"
@@ -197,10 +198,10 @@ export function Hero() {
             <div className="overflow-hidden leading-tight">
               <motion.div
                 variants={lineMaskVariants}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.2vw] font-light tracking-tight text-zinc-200"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.2vw] font-serif font-normal tracking-tight text-zinc-100"
               >
-                <span className="block sm:inline">Social Work.</span>{" "}
-                <span className="block sm:inline text-zinc-400 font-extralight">Mental Health.</span>
+                <span className="block sm:inline font-normal text-white">Social Work.</span>{" "}
+                <span className="block sm:inline font-serif italic text-zinc-400 font-normal">Mental Health.</span>
               </motion.div>
             </div>
 
@@ -208,10 +209,10 @@ export function Hero() {
             <div className="overflow-hidden leading-tight">
               <motion.div
                 variants={lineMaskVariants}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.2vw] font-light tracking-tight text-zinc-200"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.2vw] font-serif font-normal tracking-tight text-zinc-100"
               >
-                <span className="block sm:inline">Entrepreneurship.</span>{" "}
-                <span className="block sm:inline text-zinc-400 font-extralight">Creativity.</span>
+                <span className="block sm:inline font-serif italic text-zinc-400 font-normal">Entrepreneurship.</span>{" "}
+                <span className="block sm:inline font-normal text-white">Creativity.</span>
               </motion.div>
             </div>
           </motion.div>
@@ -253,8 +254,8 @@ export function Hero() {
         className="relative z-10 w-full max-w-7xl mx-auto pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
       >
         {/* Short Supporting Statement + Micro Roles */}
-        <div className="space-y-1 max-w-xl">
-          <p className="text-sm sm:text-base font-light text-zinc-300 leading-snug">
+        <div className="space-y-1.5 max-w-xl">
+          <p className="text-sm sm:text-base font-sans font-light text-zinc-300 leading-[1.7]">
             Building meaningful impact through people, ideas and innovation.
           </p>
           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] sm:text-[11px] font-sans tracking-wide text-zinc-400">
@@ -262,7 +263,7 @@ export function Hero() {
             <span className="text-white/20">•</span>
             <span>Founder, YUVA Manass</span>
             <span className="text-white/20">•</span>
-            <span>MSW Student — Medical & Psychiatry</span>
+            <span>MSW Scholar — Medical & Psychiatry</span>
           </div>
         </div>
 
@@ -278,7 +279,7 @@ export function Hero() {
             className="group flex items-center gap-3 text-zinc-400 hover:text-sky-400 transition-colors cursor-pointer min-h-[44px] py-2 px-1"
             ariaLabel="Scroll down to explore"
           >
-            <span className="uppercase tracking-widest text-[10px] font-sans font-medium">
+            <span className="uppercase tracking-[0.2em] text-[10px] font-sans font-medium">
               Scroll to explore
             </span>
             <div className="relative w-3.5 h-6 rounded-full border border-white/20 flex items-start justify-center p-0.5 group-hover:border-sky-400 transition-colors">

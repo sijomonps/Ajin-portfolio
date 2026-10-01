@@ -64,16 +64,16 @@ export function Footer() {
         {/* Top Section Metadata */}
         <div className="pb-4 border-b border-white/[0.08] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+            <span className="type-meta text-sky-400">
               11 / CONTACT
             </span>
             <span className="h-3 w-px bg-white/20" />
-            <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400">
+            <span className="type-meta text-zinc-400">
               DIRECT INQUIRY &amp; DIALOGUE
             </span>
           </div>
 
-          <span className="font-sans text-[11px] text-zinc-500 uppercase tracking-wider">
+          <span className="type-meta text-zinc-500">
             {personalInfo.location}
           </span>
         </div>
@@ -82,7 +82,7 @@ export function Footer() {
         {/* LARGE EDITORIAL TYPOGRAPHY: LET'S CONNECT.                     */}
         {/* ============================================================== */}
         <div className="my-10 sm:my-16 md:my-24 select-none">
-          <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400/90 block mb-3">
+          <span className="type-meta text-sky-400/90 block mb-3">
             [ Final Scene ]
           </span>
 
@@ -93,7 +93,7 @@ export function Footer() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
-                className="text-[13.5vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] font-extralight uppercase tracking-[-0.03em] text-zinc-500"
+                className="font-serif text-[13.5vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] font-normal uppercase tracking-tight text-zinc-500"
               >
                 LET&apos;S
               </motion.h2>
@@ -106,9 +106,9 @@ export function Footer() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.15 }}
-                className="text-[13.5vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] font-extralight uppercase tracking-[-0.03em] text-zinc-100"
+                className="font-serif text-[13.5vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] font-normal uppercase tracking-tight text-zinc-100"
               >
-                CONNECT<span className="text-sky-400 font-light">.</span>
+                CONNECT<span className="text-sky-400 font-serif italic font-normal">.</span>
               </motion.h2>
             </div>
           </div>
@@ -127,38 +127,38 @@ export function Footer() {
           {/* Left Column: Identity & Leadership Standing */}
           <motion.div variants={itemVariants} className="lg:col-span-5 space-y-5 sm:space-y-6">
             <div className="space-y-2">
-              <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+              <span className="type-meta text-sky-400">
                 Identity &amp; Standing
               </span>
-              <h3 className="text-2xl sm:text-3xl font-light uppercase tracking-tight text-white">
-                AJIN SHIBU
+              <h3 className="font-editorial-heading text-2xl sm:text-4xl text-white">
+                AJIN SHIBU<span className="text-sky-400">.</span>
               </h3>
             </div>
 
-            <div className="space-y-1.5 font-sans text-xs sm:text-sm text-zinc-400">
+            <div className="space-y-1.5 font-sans text-xs sm:text-sm text-zinc-400 leading-[1.7]">
               <div className="text-zinc-300 font-medium">Social Work Professional</div>
               <div>Founder &amp; Chairman — AMDG Group</div>
               <div>Founder — YUVA Manass Campaign</div>
             </div>
 
             <div className="pt-4 border-t border-white/[0.06] space-y-1.5 font-sans text-xs text-zinc-400">
-              <div className="flex items-center gap-2 text-zinc-400">
+              <div className="flex items-center gap-2 type-meta text-zinc-400">
                 <MessageCircle className="h-3.5 w-3.5 text-sky-400" />
-                <span>YUVA Manass Campaign Outreach:</span>
+                <span>YUVA Manass Outreach:</span>
               </div>
               <p className="text-zinc-200 font-medium pl-5 tracking-wide">
                 @yuvamanass_campaign
               </p>
             </div>
 
-            <div className="pt-2 text-[11px] font-sans text-zinc-500 tracking-wider">
+            <div className="pt-2 type-meta text-[11px] text-zinc-500">
               {personalInfo.statusBadge}
             </div>
           </motion.div>
 
           {/* Right Column: Large Clickable Communication Links */}
           <motion.div variants={itemVariants} className="lg:col-span-7 space-y-3 sm:space-y-4">
-            <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400 block mb-2">
+            <span className="type-meta text-zinc-400 block mb-2">
               Direct Communication
             </span>
 
@@ -170,11 +170,11 @@ export function Footer() {
             >
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 font-sans text-[11px] font-medium text-sky-400 uppercase tracking-[0.2em]">
+                  <div className="flex items-center gap-2 type-meta text-sky-400">
                     <Mail className="h-3.5 w-3.5" />
                     <span>EMAIL DIRECT</span>
                   </div>
-                  <span className="text-base min-[390px]:text-xl sm:text-2xl md:text-3xl font-light text-zinc-100 group-hover:text-white transition-colors block break-all">
+                  <span className="text-base min-[390px]:text-xl sm:text-2xl md:text-3xl font-light text-zinc-100 group-hover:text-white transition-colors block break-all font-sans">
                     {personalInfo.email}
                   </span>
                 </div>
@@ -190,11 +190,11 @@ export function Footer() {
             >
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 font-sans text-[11px] font-medium text-sky-400 uppercase tracking-[0.2em]">
+                  <div className="flex items-center gap-2 type-meta text-sky-400">
                     <Phone className="h-3.5 w-3.5" />
                     <span>TELEPHONE</span>
                   </div>
-                  <span className="text-lg min-[390px]:text-xl sm:text-2xl md:text-3xl font-light text-zinc-100 group-hover:text-white transition-colors block">
+                  <span className="text-lg min-[390px]:text-xl sm:text-2xl md:text-3xl font-light text-zinc-100 group-hover:text-white transition-colors block font-sans">
                     {personalInfo.phone}
                   </span>
                 </div>
@@ -212,11 +212,11 @@ export function Footer() {
             >
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 font-sans text-[11px] font-medium text-sky-400 uppercase tracking-[0.2em]">
+                  <div className="flex items-center gap-2 type-meta text-sky-400">
                     <Globe className="h-3.5 w-3.5" />
                     <span>AMDG GROUP ECOSYSTEM</span>
                   </div>
-                  <span className="text-lg min-[390px]:text-xl sm:text-2xl md:text-3xl font-light text-zinc-100 group-hover:text-white transition-colors block">
+                  <span className="text-lg min-[390px]:text-xl sm:text-2xl md:text-3xl font-light text-zinc-100 group-hover:text-white transition-colors block font-sans">
                     amdggroup.in
                   </span>
                 </div>
@@ -232,17 +232,17 @@ export function Footer() {
         <div className="py-8 sm:py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8">
           {/* Identity & 4 Core Pillars */}
           <div className="space-y-1.5">
-            <span className="text-base sm:text-lg font-light uppercase tracking-tight text-white block">
+            <span className="font-serif text-xl sm:text-2xl font-normal tracking-tight text-white block">
               AJIN SHIBU
             </span>
-            <div className="text-xs sm:text-sm font-sans text-zinc-400 space-y-0.5">
+            <div className="text-xs sm:text-sm font-sans text-zinc-400 space-y-0.5 leading-normal">
               <div>Social Work. Mental Health.</div>
               <div>Entrepreneurship. Creativity.</div>
             </div>
           </div>
 
           {/* Center / Year */}
-          <div className="font-sans text-xs text-zinc-500 tracking-wider">
+          <div className="type-meta text-zinc-500">
             <span>© 2026 AJIN SHIBU • ALL RIGHTS RESERVED</span>
           </div>
 
@@ -251,7 +251,7 @@ export function Footer() {
             <MagneticButton
               onClick={scrollToTop}
               strength={0.2}
-              className="group inline-flex items-center gap-2.5 px-5 py-2.5 min-h-[44px] rounded-xs border border-white/[0.08] hover:border-sky-400/40 text-zinc-400 hover:text-white transition-all duration-300 font-sans text-xs uppercase tracking-widest cursor-pointer"
+              className="group inline-flex items-center gap-2.5 px-5 py-2.5 min-h-[44px] rounded-xs border border-white/[0.08] hover:border-sky-400/40 text-zinc-400 hover:text-white transition-all duration-300 type-meta cursor-pointer"
               ariaLabel="Scroll back to top of the page"
             >
               <span>Back to top</span>

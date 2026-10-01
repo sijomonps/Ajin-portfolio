@@ -102,29 +102,39 @@ export function AmdgGroup() {
         {/* Section Header & Status Marker */}
         <div className="pb-3 border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-sky-400 font-medium">
+            <span className="type-meta text-sky-400">
               06 / VENTURE
             </span>
             <span className="h-3 w-px bg-white/20" />
-            <span className="font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-400">
+            <span className="type-meta text-zinc-400">
               ENTREPRENEURSHIP &amp; DIGITAL MEDIA
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-sans text-[10px] sm:text-[11px] text-zinc-400 uppercase tracking-wider font-medium">
+          <div className="flex items-center gap-2 type-meta text-zinc-400">
             <span className="text-zinc-500">STANDING:</span>
             <span className="text-white font-medium">FOUNDER &amp; CHAIRMAN</span>
           </div>
         </div>
 
+        {/* Section Heading */}
+        <div className="mt-8 mb-6 sm:mb-10">
+          <h2 className="font-editorial-heading text-3xl sm:text-5xl md:text-6xl text-zinc-100">
+            AMDG Group<span className="text-sky-400">.</span>
+          </h2>
+          <p className="mt-2 text-sm sm:text-base font-serif italic text-zinc-400">
+            Venture Incubation &amp; Digital Innovation Ecosystem.
+          </p>
+        </div>
+
         {/* ============================================================== */}
         {/* THE CORE ANCHOR COMPOSITION: HUGE "AMDG" + DYNAMIC SATELLITES  */}
         {/* ============================================================== */}
-        <div className="relative my-8 sm:my-16 md:my-24 flex flex-col items-center justify-center overflow-x-clip w-full">
+        <div className="relative my-8 sm:my-14 md:my-20 flex flex-col items-center justify-center overflow-x-clip w-full">
           {/* Top Kinetic Floating Banner (Drifting Right) */}
           <motion.div
             style={{ x: driftRight }}
-            className="w-full flex items-center justify-between gap-4 sm:gap-6 pb-3 sm:pb-6 font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-500 select-none font-medium"
+            className="w-full flex items-center justify-between gap-4 sm:gap-6 pb-3 sm:pb-6 type-meta text-zinc-500 select-none"
           >
             <div className="flex items-center gap-2 text-sky-400/80">
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
@@ -134,17 +144,17 @@ export function AmdgGroup() {
             <span className="text-zinc-400">MEDIA LABS</span>
           </motion.div>
 
-          {/* Central Monolithic Anchor Typography: AMDG */}
+          {/* Central Monolithic Anchor Typography: AMDG (Solid, Crisp Instrument Serif) */}
           <div className="relative py-2 sm:py-4 overflow-hidden">
             <motion.h3
               style={{ scale: anchorScale }}
-              className="text-[26vw] sm:text-[22vw] md:text-[18vw] lg:text-[16vw] font-black uppercase tracking-[-0.05em] leading-[0.82] select-none text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-700/40 text-center transition-all duration-700 hover:tracking-normal"
+              className="font-serif text-[24vw] sm:text-[20vw] md:text-[17vw] lg:text-[15vw] font-normal uppercase tracking-tight leading-[0.82] select-none text-zinc-100 text-center transition-all duration-700 hover:tracking-normal"
             >
               AMDG
             </motion.h3>
 
             {/* Sub-label overlay directly under the letters */}
-            <div className="mt-1.5 sm:mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 font-sans text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.25em] text-sky-400 text-center font-medium">
+            <div className="mt-1.5 sm:mt-3 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 type-meta text-sky-400 text-center">
               <span>AMDG GROUP</span>
               <span className="text-white/20">•</span>
               <span>INNOVATION ECOSYSTEM</span>
@@ -154,7 +164,7 @@ export function AmdgGroup() {
           {/* Bottom Kinetic Floating Banner (Drifting Left) */}
           <motion.div
             style={{ x: driftLeft }}
-            className="w-full flex items-center justify-between gap-4 sm:gap-6 pt-3 sm:pt-6 font-sans text-[11px] sm:text-xs uppercase tracking-widest text-zinc-500 select-none font-medium"
+            className="w-full flex items-center justify-between gap-4 sm:gap-6 pt-3 sm:pt-6 type-meta text-zinc-500 select-none"
           >
             <span className="text-zinc-400">SOCIAL ENTREPRENEURSHIP</span>
             <span className="hidden sm:inline-block">SUSTAINABLE MODELS</span>
@@ -171,22 +181,22 @@ export function AmdgGroup() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start pb-12 sm:pb-16 border-b border-white/[0.08]">
           {/* Left Column: Bold Vision Manifesto */}
           <div className="lg:col-span-7 space-y-3">
-            <span className="font-sans text-xs uppercase tracking-widest text-sky-400 block font-medium">
+            <span className="type-meta text-sky-400 block">
               [ Ecosystem Vision ]
             </span>
-            <blockquote className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight text-zinc-100 leading-snug tracking-tight">
+            <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-zinc-100 leading-snug tracking-tight">
               To build a creative and innovative entrepreneurial ecosystem connecting{" "}
-              <span className="text-white font-normal">Technology</span>,{" "}
-              <span className="font-serif italic font-normal text-sky-400">Design</span>,{" "}
-              <span className="text-white font-normal">Media</span>,{" "}
-              <span className="text-sky-400 font-normal">Entrepreneurship</span>, and{" "}
-              <span className="text-white font-normal">Social Impact</span>.
+              <span className="text-white">Technology</span>,{" "}
+              <span className="italic text-sky-400">Design</span>,{" "}
+              <span className="text-white">Media</span>,{" "}
+              <span className="italic text-zinc-300">Entrepreneurship</span>, and{" "}
+              <span className="text-white">Social Impact</span>.
             </blockquote>
           </div>
 
           {/* Right Column: Strategic Colophon & Action CTA */}
           <div className="lg:col-span-5 space-y-4">
-            <p className="text-base sm:text-lg font-light text-zinc-300 leading-relaxed">
+            <p className="text-base sm:text-lg font-light text-zinc-300 leading-[1.75] max-w-xl">
               Founded and chaired by Ajin Shibu, AMDG Group serves as the entrepreneurial engine connecting modern technological development, creative communication direction through AMDG Media, and structured civic welfare initiatives.
             </p>
 
@@ -213,7 +223,7 @@ export function AmdgGroup() {
                 target="_blank"
                 rel="noopener noreferrer"
                 strength={0.2}
-                className="group relative inline-flex items-center gap-3 px-6 py-3.5 rounded-sm bg-white text-zinc-950 font-sans text-xs uppercase tracking-widest font-semibold hover:bg-sky-400 transition-all duration-300 shadow-xl shadow-white/5 hover:shadow-sky-400/20 focus:outline-none"
+                className="group relative inline-flex items-center gap-3 px-6 py-3.5 rounded-sm bg-white text-zinc-950 type-meta font-semibold hover:bg-sky-400 transition-all duration-300 shadow-xl shadow-white/5 hover:shadow-sky-400/20 focus:outline-none"
                 ariaLabel="Visit official AMDG Group website (opens in a new tab)"
               >
                 <Globe className="h-4 w-4" />
@@ -230,14 +240,14 @@ export function AmdgGroup() {
         <div className="py-12 sm:py-16">
           <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-8">
             <div>
-              <span className="font-sans text-xs uppercase tracking-widest text-sky-400 font-medium block mb-1">
+              <span className="type-meta text-sky-400 block mb-1">
                 Integrated Capabilities
               </span>
-              <h3 className="text-2xl sm:text-3xl font-light uppercase tracking-tight text-zinc-100">
-                Five Functional Axes
+              <h3 className="font-editorial-heading text-2xl sm:text-3xl text-zinc-100">
+                Five Functional Axes<span className="text-sky-400">.</span>
               </h3>
             </div>
-            <span className="hidden sm:inline-block font-sans text-xs text-zinc-500 uppercase tracking-wider font-medium">
+            <span className="hidden sm:inline-block type-meta text-zinc-500">
               [ AMDG Operating System ]
             </span>
           </div>
@@ -259,20 +269,20 @@ export function AmdgGroup() {
                     <span className="font-sans text-xs text-sky-400 font-semibold tracking-wider">
                       {pillar.code}
                     </span>
-                    <h4 className="text-xl sm:text-2xl lg:text-3xl font-light uppercase tracking-tight text-zinc-100 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
+                    <h4 className="font-serif text-2xl sm:text-3xl font-normal text-zinc-100 group-hover:text-white group-hover:translate-x-2 transition-all duration-300">
                       {pillar.title}
                     </h4>
                   </div>
 
                   {/* Center: Tag / Division */}
-                  <div className="lg:col-span-3 flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-zinc-400">
+                  <div className="lg:col-span-3 flex items-center gap-2 type-meta text-zinc-400">
                     {pillar.icon}
                     <span>{pillar.tag}</span>
                   </div>
 
                   {/* Right: Concise Scope Description */}
                   <div className="lg:col-span-4">
-                    <p className="text-xs sm:text-sm font-light text-zinc-400 leading-relaxed group-hover:text-zinc-200 transition-colors">
+                    <p className="text-xs sm:text-sm font-sans font-light text-zinc-400 leading-[1.7] group-hover:text-zinc-200 transition-colors max-w-xl">
                       {pillar.description}
                     </p>
                   </div>

@@ -107,26 +107,36 @@ export function ProfessionalVision() {
         {/* Top Header Marker */}
         <div className="pb-4 border-b border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div className="flex items-center gap-3">
-            <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+            <span className="type-meta text-sky-400">
               10 / DIRECTION
             </span>
             <span className="h-3 w-px bg-white/20" />
-            <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400">
+            <span className="type-meta text-zinc-400">
               PROFESSIONAL TRAJECTORY
             </span>
           </div>
 
-          <div className="flex items-center gap-2 font-sans text-[11px] text-zinc-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 type-meta text-zinc-400">
             <Compass className="h-3.5 w-3.5 text-sky-400" />
             <span>HORIZON 2026+</span>
           </div>
+        </div>
+
+        {/* Section Heading */}
+        <div className="mt-8 mb-6 sm:mb-10">
+          <h2 className="font-editorial-heading text-3xl sm:text-5xl md:text-6xl text-zinc-100">
+            Professional Vision<span className="text-sky-400">.</span>
+          </h2>
+          <p className="mt-2 text-sm sm:text-base font-serif italic text-zinc-400">
+            Synthesis of Social Work, Healthcare &amp; Enterprise.
+          </p>
         </div>
 
         {/* ============================================================== */}
         {/* OPENING MAJOR EDITORIAL STATEMENT: WHERE / I'M / GOING         */}
         {/* ============================================================== */}
         <div className="max-w-5xl">
-          <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400 block mb-3 sm:mb-4">
+          <span className="type-meta text-sky-400 block mb-3 sm:mb-4">
             [ Future Horizon ]
           </span>
 
@@ -137,7 +147,7 @@ export function ProfessionalVision() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
-                className="text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[8vw] font-extralight uppercase tracking-[-0.03em] text-zinc-500"
+                className="font-serif text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[8vw] font-normal uppercase tracking-tight text-zinc-500"
               >
                 WHERE
               </motion.h2>
@@ -150,7 +160,7 @@ export function ProfessionalVision() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.15 }}
-                className="text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[8vw] font-extralight uppercase tracking-[-0.03em] text-zinc-300"
+                className="font-serif italic text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[8vw] font-normal uppercase tracking-tight text-zinc-300"
               >
                 I&apos;M
               </motion.h2>
@@ -163,9 +173,9 @@ export function ProfessionalVision() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ delay: 0.3 }}
-                className="text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[8vw] font-extralight uppercase tracking-[-0.03em] text-zinc-100"
+                className="font-serif text-[13vw] sm:text-[11vw] md:text-[9vw] lg:text-[8vw] font-normal uppercase tracking-tight text-zinc-100"
               >
-                GOING<span className="text-sky-400 font-light">.</span>
+                GOING<span className="text-sky-400 font-serif italic font-normal">.</span>
               </motion.h2>
             </div>
           </div>
@@ -176,10 +186,10 @@ export function ProfessionalVision() {
         {/* ============================================================== */}
         <div className="pt-4 sm:pt-6">
           <div className="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6 sm:mb-8 lg:mb-10">
-            <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-zinc-400">
+            <span className="type-meta text-zinc-400">
               Converging Disciplines
             </span>
-            <span className="font-sans text-[10px] text-sky-400 uppercase tracking-wider font-medium">
+            <span className="type-meta text-sky-400">
               6 CORE PILLARS
             </span>
           </div>
@@ -208,20 +218,20 @@ export function ProfessionalVision() {
           <div className="pointer-events-none absolute -inset-px bg-gradient-to-b from-sky-400/[0.04] via-transparent to-transparent" />
 
           <div className="relative z-10 max-w-4xl space-y-5 sm:space-y-7">
-            <div className="flex items-center gap-2 font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+            <div className="flex items-center gap-2 type-meta text-sky-400">
               <Sparkles className="h-4 w-4" />
               <span>Long-Term Purpose &amp; Dedication</span>
             </div>
 
-            <blockquote className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extralight text-zinc-100 leading-[1.25] sm:leading-[1.2] tracking-tight">
+            <blockquote className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-zinc-100 leading-[1.3] sm:leading-[1.25] tracking-tight">
               “To become a{" "}
-              <span className="text-white font-normal">social work professional</span>,{" "}
-              <span className="text-sky-400 font-serif italic font-normal tracking-normal">mental health promoter</span>, trainer and{" "}
-              <span className="text-white font-normal">social entrepreneur</span> who uses knowledge, creativity and technology to create{" "}
-              <span className="text-sky-400 font-serif italic font-normal tracking-normal">meaningful social impact</span>.”
+              <span className="text-white">social work professional</span>,{" "}
+              <span className="text-sky-400 italic">mental health promoter</span>, trainer and{" "}
+              <span className="text-white">social entrepreneur</span> who uses knowledge, creativity and technology to create{" "}
+              <span className="text-sky-400 italic">meaningful social impact</span>.”
             </blockquote>
 
-            <div className="pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-sans text-xs text-zinc-500 tracking-wider">
+            <div className="pt-5 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-3 type-meta text-zinc-500">
               <span>AJIN SHIBU • KERALA, INDIA</span>
               <span>SYNTHESIZING THEORY, FIELDWORK &amp; ENTERPRISE</span>
             </div>
@@ -237,7 +247,7 @@ export function ProfessionalVision() {
             className="group flex flex-col items-center gap-2 text-zinc-500 hover:text-sky-400 transition-colors cursor-pointer min-h-[44px] py-2 px-3"
             aria-label="Continue to contact and direct inquiry"
           >
-            <span className="font-sans text-[11px] uppercase tracking-[0.2em] text-zinc-400 group-hover:text-sky-400 transition-colors">
+            <span className="type-meta text-zinc-400 group-hover:text-sky-400 transition-colors">
               Continue to Dialogue &amp; Inquiry
             </span>
             <div className="w-8 h-8 rounded-full border border-white/10 group-hover:border-sky-400/50 flex items-center justify-center transition-all duration-300 group-hover:translate-y-1">
@@ -285,24 +295,24 @@ function SettlingThemeCard({
       className="group relative p-5 sm:p-6 lg:p-7 rounded-sm border border-white/[0.08] bg-[#0c0e12]/80 hover:border-sky-400/40 hover:bg-[#101217] transition-all duration-500 flex flex-col justify-between space-y-4"
     >
       <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
-        <span className="font-sans text-xs text-sky-400 font-medium tracking-widest">
+        <span className="type-meta text-sky-400">
           {theme.code} {"//"} AXIS
         </span>
-        <span className="font-sans text-[10px] text-zinc-500 uppercase tracking-widest">
+        <span className="type-meta text-zinc-500 text-[10px]">
           INTEGRATION
         </span>
       </div>
 
       <div className="space-y-1 py-1">
-        <h3 className="text-xl sm:text-2xl font-light text-zinc-100 group-hover:text-white uppercase tracking-tight transition-colors">
+        <h3 className="font-serif text-2xl sm:text-3xl font-normal text-zinc-100 group-hover:text-white uppercase tracking-tight transition-colors">
           {theme.title}
         </h3>
-        <p className="text-xs font-sans text-zinc-400 pt-0.5">
+        <p className="text-xs font-sans font-light text-zinc-400 leading-[1.7] pt-0.5">
           {theme.tag}
         </p>
       </div>
 
-      <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[10px] font-sans text-zinc-500 tracking-wider">
+      <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between type-meta text-[10px] text-zinc-500">
         <span>CORE PERSPECTIVE</span>
         <span className="text-sky-400">•</span>
       </div>
